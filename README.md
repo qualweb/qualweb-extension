@@ -2,7 +2,7 @@
 ## How to install
 
 ```shell
-  $ git clone repUrl
+  $ git clone https://github.com/qualweb/qualweb-extension.git
 ```
 
 ## How to run
