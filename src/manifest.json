@@ -1,0 +1,33 @@
+{
+  "name": "qualweb-extension",
+  "description": "Accessiblity evalutaion using QualWeb",
+  "version": "1.0",
+  "manifest_version": 2,
+  "icons": {
+    "48": "icons/icon_48.ico"
+  },
+  "permissions": [
+    "tabs",{"fileSystem": ["write"]}
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "icons/logoQW.png"
+  ],
+  "devtools_page": "devtools.html"
+}
