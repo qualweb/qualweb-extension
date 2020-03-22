@@ -21,6 +21,6 @@ Open chrome or chromium with:(https://www.chromium.org/developers/how-tos/run-ch
 ```shell
   $ pathToChrome --remote-debugging-port=9222
 ```
-In the browser go to chrome://extensions/ and enable developer mode in the top right corner switch.
+In the browser go to https:/chrome://extensions/ and enable developer mode in the top right corner switch.
 To add the extension press Load Unpacked in the top left corner and select the dist folder.
 Only the ACT and BP modules are available.
