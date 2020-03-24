@@ -81,6 +81,7 @@ const config = {
       { from: 'background.js', to: 'background.js' },
       { from: 'popup/evaluate.js', to: 'popup/evaluate.js' },
       { from: 'popup/act.js', to: 'popup/act.js' },
+      { from: 'popup/html.js', to: 'popup/html.js' },
       { from: 'popup/bp.js', to: 'popup/bp.js' },
       { from: 'popup/puppeteer-web.js', to: 'popup/puppeteer-web.js' },
       { from: 'icons', to: 'icons', ignore: ['icon.xcf'] },
