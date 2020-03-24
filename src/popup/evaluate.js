@@ -27,7 +27,11 @@ async function evaluate(actEval, htmlEval, cssEval, bpEval) {
         result.act = actResult.rules;
         console.log(actResult);
     } if (htmlEval) {
-        //TODO
+        html = new HTMLTechniques.HTMLTechniques();
+        htmlResult = await html.execute(currentPage);
+        console.log(htmlResult);
+        addValuesToSummary(summary, htmlResult);
+        result.html = htmlResult["techniques"];
 
     } if (cssEval) {
         //TODO

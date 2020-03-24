@@ -67,6 +67,10 @@ export default {
 </script>
 
 <style scoped>
+.formComponent {
+  height: 100%;
+  overflow: auto;
+}
 .smallContainer {
   margin-left: 0.2em;
   display: grid;
