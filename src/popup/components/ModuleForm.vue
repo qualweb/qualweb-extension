@@ -57,9 +57,7 @@ export default {
     ...mapGetters(["getEvaluated", "getFirstRule"]),
     async sendFormData(e) {
       e.preventDefault();
-      await this.setReport(this.getEvaluated());
-      this.setCurrentRule(this.getFirstRule());
-      this.$router.push("/evaluation");
+      this.$router.push("/loading");
     }
   },
   components: { Checkbox }

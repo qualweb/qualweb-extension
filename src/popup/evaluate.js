@@ -1,3 +1,59 @@
+let browser, currentPage, summary;
+
+async function starEvaluation() {
+    const puppeteer = require('puppeteer');
+    // let cssArray = await getCSS(); // nao esquecer de fazer await
+    browser = await puppeteer.connect({ browserURL: 'http://127.0.0.1:9222', defaultViewport: null });
+    let pages = await browser.pages();
+    let title = await getTitle();
+    let url = await getUrl();
+    summary = { passed: 0, failed: 0, warning: 0, inapplicable: 0, title: title };
+    let act, html, css, bp, actResult, htmlResult, cssResult, bpResult;
+    for (let page of pages) {
+        if (await page.url() === url)
+            currentPage = page;
+    }
+}
+
+async function evaluateACT() {
+    let act, actResult, result;
+    act = new ACTRules.ACTRules();
+    actResult = await act.execute({}, currentPage, []);
+    addValuesToSummary(summary, actResult);
+    console.log(summary);
+    result = actResult.rules;
+    return result;
+}
+
+async function evaluateHTML() {
+    let html, htmlResult, result;
+    html = new HTMLTechniques.HTMLTechniques();
+    htmlResult = await html.execute(currentPage);
+    console.log(htmlResult);
+    addValuesToSummary(summary, htmlResult);
+    result = htmlResult["techniques"];
+    return result;
+}
+
+async function evaluateBP() {
+    let bp, bpResult, result;
+    bp = await new BestPractices.BestPractices();
+    bpResult = await bp.execute(currentPage)
+    addValuesToSummary(summary, bpResult);
+    result = bpResult["best-practices"];
+    return result;
+}
+
+async function evaluateCSS() {
+    //TODO
+}
+
+async function endingEvaluation(){
+    browser.disconnect();
+    return summary;
+}
+
+
 async function evaluate(actEval, htmlEval, cssEval, bpEval) {
     console.log("act" + actEval);
     console.log("html" + htmlEval);

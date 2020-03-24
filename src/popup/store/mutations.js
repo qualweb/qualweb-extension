@@ -25,6 +25,7 @@ export default {
     state.filter = payload;
   },
   [types.SETCURRENTRULE](state, payload) {
+    console.log(state);
     state.currentRule = payload;
   },
   [types.RESET](state) {

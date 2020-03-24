@@ -1,8 +1,8 @@
 import * as types from './mutation-types';
 
-export const setReport = (async function ({ commit },modules) {
+export const setReport = (async function ({ commit }, modules) {
   let report = await evaluate(modules.act, modules.html, modules.css, modules.bp);
-  
+
   commit(types.SETACT, report.act);
   commit(types.SETHTML, report.html);
   commit(types.SETBP, report.bp);
@@ -30,6 +30,7 @@ export const setCSS = ({ commit }, payload) => {
   commit(types.SETCSS, payload)
 }
 export const setSummary = ({ commit }, payload) => {
+  commit(types.SETFILTER, "all outcomes");
   commit(types.SETSUMMARY, payload)
 }
 export const setEvaluated = ({ commit }, payload) => {

@@ -18,7 +18,6 @@ import Summary from "../../components/Summary.vue";
 import ListOfRules from "../../components/ListOfRules.vue";
 import ListContent from "../../components/ListContent.vue";
 import FilterByResult from "../../components/FilterByResult.vue";
-
 import { mapGetters } from "vuex";
 
 export default {
