@@ -39,6 +39,7 @@ p {
   flex-direction: column;
   height: 100%;
   overflow: hidden;
+  margin-left: 0.2em;
 }
 .bigContainer {
   height: 100vh;
