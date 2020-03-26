@@ -28,6 +28,7 @@
         :key="idx"
         role="option"
         @click="select(idx)"
+        :aria-label="opt"
       >{{ opt }}</li>
     </ul>
   </div>

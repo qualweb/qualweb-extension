@@ -7,20 +7,40 @@
     </button>
     <div class="controller">
       <div>
-        <button :disabled="index===1" class="smallBtn flexElement" aria-label="First page">
-          <i @click="first()" class="material-icons">first_page</i>
+        <button
+          @click="first()"
+          :disabled="index===1"
+          class="smallBtn flexElement"
+          aria-label="First page"
+        >
+          <i class="material-icons">first_page</i>
         </button>
-        <button :disabled="index===1" class="smallBtn flexElement" aria-label="Previous page">
-          <i @click="before()" class="material-icons-round">chevron_left</i>
+        <button
+          @click="before()"
+          :disabled="index===1"
+          class="smallBtn flexElement"
+          aria-label="Previous page"
+        >
+          <i class="material-icons-round">chevron_left</i>
         </button>
       </div>
       <span class="flexElement index">{{index}}</span>
       <div>
-        <button :disabled="index===size" class="smallBtn flexElement" aria-label="Next page">
-          <i @click="after()" class="material-icons-round">chevron_right</i>
+        <button
+          @click="after()"
+          :disabled="index===size"
+          class="smallBtn flexElement"
+          aria-label="Next page"
+        >
+          <i class="material-icons-round">chevron_right</i>
         </button>
-        <button :disabled="index===size" class="smallBtn flexElement" aria-label="Last page">
-          <i @click="last()" class="material-icons-round">last_page</i>
+        <button
+          @click="last()"
+          :disabled="index===size"
+          class="smallBtn flexElement"
+          aria-label="Last page"
+        >
+          <i class="material-icons-round">last_page</i>
         </button>
       </div>
     </div>
@@ -140,8 +160,9 @@ button:disabled {
   justify-content: space-between;
 }
 @media only screen and (max-width: 400px) {
-.container {
-  display: grid;
-  justify-content: center;
-}}
+  .container {
+    display: grid;
+    justify-content: center;
+  }
+}
 </style>

@@ -2,23 +2,23 @@
   <div class="text">
     <h1 class="center">{{rule.name}}</h1>
     <p v-if="rule.mapping">
-      <strong>Rule ID:</strong>
+      <span class="strong">Rule ID:</span>
       {{rule.mapping}}
     </p>
     <p v-if="rule.url">
-      <strong>Url:</strong>
+      <span class="strong">Url:</span>
       {{rule.metadata.url}}
     </p>
     <p>
-      <strong>Description:</strong>
+      <span class="strong">Description:</span>
       {{rule.description}}
     </p>
     <p>
-      <strong>Outcome:</strong>
+      <span class="strong">Outcome:</span>
       {{rule.metadata.outcome}}
     </p>
     <p v-if="rule.results.length!==0">
-      <strong>Results:</strong>
+      <span class="strong">Results:</span>
     </p>
     <ElementNavigation v-if="rule.results.length!==0" :elements="rule.results"></ElementNavigation>
   </div>

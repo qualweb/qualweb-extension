@@ -3,19 +3,19 @@
     <button @click="changeRule(rule)" class="listRule" v-for="rule in rules" :key="rule.code">
       <h2>{{rule.title}}</h2>
       <div v-if="rule.outcome ==='passed'">
-        <i class="material-icons passed flexElement">check_circle_outline</i>
+        <i role="presentation" class="material-icons passed flexElement">check_circle_outline</i>
         <span class="flexElement">Passed</span>
       </div>
       <div v-if="rule.outcome ==='failed'">
-        <i class="material-icons failed flexElement">highlight_off</i>
+        <i role="presentation" class="material-icons failed flexElement">highlight_off</i>
         <span class="flexElement">Failed</span>
       </div>
       <div v-if="rule.outcome ==='warning'">
-        <i class="material-icons warning flexElement">warning</i>
+        <i role="presentation" class="material-icons warning flexElement">warning</i>
         <span class="flexElement">Warning</span>
       </div>
       <div v-if="rule.outcome ==='inapplicable'">
-        <i class="material-icons inapplicable flexElement">not_interested</i>
+        <i role="presentation" class="material-icons inapplicable flexElement">not_interested</i>
         <span class="flexElement">Inapplicable</span>
       </div>
     </button>
