@@ -31,6 +31,7 @@ export default {
     ...mapGetters(["getCurrentRule"]),
     changeRule(rule) {
       this.setCurrentRule({ code: rule.code, module: rule.module });
+      this.$emit("focusContent")
     }
   },
   computed: mapGetters({ rules: "getAllRuleCodeAndTitle" })

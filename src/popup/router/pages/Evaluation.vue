@@ -4,10 +4,10 @@
     <div class="container-1">
       <div class="column-1">
         <FilterByResult :items="['All outcomes','Passed','Failed','Warning','Inapplicable']" ></FilterByResult>
-        <ListOfRules></ListOfRules>
+        <ListOfRules v-on:focusContent="focusListContent()"></ListOfRules>
       </div>
       <div class="column-2">
-        <ListContent></ListContent>
+        <ListContent ref="content" ></ListContent>
       </div>
     </div>
   </div>
@@ -26,6 +26,13 @@ export default {
     ListOfRules,
     ListContent,
     FilterByResult
+  },
+  methods:{
+    focusListContent(){
+      console.log("trying to focus")
+      this.$refs.content.$el.focus()
+    }
+
   }
 };
 </script>
