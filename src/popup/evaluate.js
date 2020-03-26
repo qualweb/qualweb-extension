@@ -1,5 +1,8 @@
 let browser, currentPage, summary;
 
+let ruleArray = ['QW-ACT-R10',"QW-ACT-R6", "QW-ACT-R13", "QW-ACT-R21", "QW-ACT-R19", "QW-ACT-R30", "QW-ACT-R24", "QW-ACT-R36", "QW-ACT-R39", "QW-ACT-R22", 'QW-ACT-R25', 'QW-ACT-R34', 'QW-ACT-R38', 'QW-ACT-R1', 'QW-ACT-R18', 'QW-ACT-R17', 'QW-ACT-R20', 'QW-ACT-R33', 'QW-ACT-R11', 'QW-ACT-R27', 'QW-ACT-R16',  'QW-ACT-R35', 'QW-ACT-R8', 'QW-ACT-R28'];
+//,'QW-ACT-R9'
+//''QW-ACT-R12'
 async function starEvaluation() {
     const puppeteer = require('puppeteer');
     // let cssArray = await getCSS(); // nao esquecer de fazer await
@@ -17,8 +20,11 @@ async function starEvaluation() {
 
 async function evaluateACT() {
     let act, actResult, result;
-    act = new ACTRules.ACTRules();
+    act = new ACTRules.ACTRules({ rules: ruleArray });
+    let start = Date.now();
+    console.log("Starting evaluation" + start);
     actResult = await act.execute({}, currentPage, []);
+    console.log("Ending evaluation act" + Math.floor((start - Date.now()) / 1000));
     addValuesToSummary(summary, actResult);
     console.log(summary);
     result = actResult.rules;
@@ -28,7 +34,10 @@ async function evaluateACT() {
 async function evaluateHTML() {
     let html, htmlResult, result;
     html = new HTMLTechniques.HTMLTechniques();
+    let start = Date.now();
+    console.log("Starting evaluation" + start);
     htmlResult = await html.execute(currentPage);
+    console.log("Ending evaluation html" + Math.floor((start - Date.now()) / 1000));
     console.log(htmlResult);
     addValuesToSummary(summary, htmlResult);
     result = htmlResult["techniques"];
@@ -38,7 +47,10 @@ async function evaluateHTML() {
 async function evaluateBP() {
     let bp, bpResult, result;
     bp = await new BestPractices.BestPractices();
+    let start = Date.now();
+    console.log("Starting evaluation" + start);
     bpResult = await bp.execute(currentPage)
+    console.log("Ending evaluation bp" + Math.floor((start - Date.now()) / 1000));
     addValuesToSummary(summary, bpResult);
     result = bpResult["best-practices"];
     return result;
@@ -48,8 +60,8 @@ async function evaluateCSS() {
     //TODO
 }
 
-async function endingEvaluation(){
-    browser.disconnect();
+async function endingEvaluation() {
+    await browser.disconnect();
     return summary;
 }
 

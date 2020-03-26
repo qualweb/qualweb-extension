@@ -114,7 +114,7 @@ export default {
 $background-color: #383838;
 $border-color: white;
 $border-inactive-color: white;
-$border-radius: 5px;
+$border-radius: 0px;
 $item-hover-color: #858586;
 $item-selected-color: rgba(0, 0, 0, 0.25);
 *,

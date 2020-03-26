@@ -24,7 +24,6 @@ export default {
     };
   },
   beforeUpdate() {
-    console.log(this.lastHighlightElement);
     if (this.lastHighlightElement !== null) {
      let selector = this.lastHighlightElement.pointer;
       chrome.devtools.inspectedWindow.eval(

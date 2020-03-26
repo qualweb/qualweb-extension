@@ -14,7 +14,6 @@ export default {
     ...mapGetters(["getEvaluated", "getFirstRule"]),
     runAgain() {
       this.reset();
-      console.log(this.getEvaluated());
       this.$router.push("/");
     }
   }

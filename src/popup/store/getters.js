@@ -30,7 +30,6 @@ export const getFirstRule = (state) => {
     let modules = Object.keys(state["evaluated"]);
     let evaluated = state["evaluated"];
     let outcomes = state["filter"];
-    console.log(modules);
     let keys;
     let value, moduleState, result;
     let done = false;
@@ -38,15 +37,11 @@ export const getFirstRule = (state) => {
     for (let module of modules) {
         index = 0;
         if (evaluated[module]) {
-            console.log(module);
             keys = Object.keys(state[module]);
-            console.log(keys);
             moduleState = state[module];
             while (!done && index < keys.length) {
                 value = moduleState[keys[index]];
-                console.log(value);
                 ruleOutcome = value["metadata"]["outcome"];
-                console.log(ruleOutcome);
                 if (testOutcome(outcomes, ruleOutcome)) {
                     result = { code: value["code"], module: module };
                     done = true;

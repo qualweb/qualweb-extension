@@ -25,11 +25,9 @@ export default {
     state.filter = payload;
   },
   [types.SETCURRENTRULE](state, payload) {
-    console.log(state);
     state.currentRule = payload;
   },
   [types.RESET](state) {
-    console.log(state);
     state.evaluated= {};
     state.act = {};
     state.bp={};
@@ -37,6 +35,5 @@ export default {
     state.css={};
     state.summary={};
     state.filter = {};
-    console.log(state);
   }
 }

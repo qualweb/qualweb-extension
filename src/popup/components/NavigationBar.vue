@@ -53,7 +53,6 @@ export default {
       }
     },
     after() {
-      console.log(this.size);
       if (this.index < this.size) {
         this.disableHighlight();
         this.index++;
@@ -89,7 +88,6 @@ export default {
       }
     },
     clean() {
-      console.log("clean");
       this.disableHighlight();
       this.index = 1;
     }
