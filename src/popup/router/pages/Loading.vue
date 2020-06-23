@@ -9,7 +9,6 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-
 export default {
   name: "Loading",
   props: ["act", "html", "bp", "css"],
@@ -36,6 +35,7 @@ export default {
     if (modules.act) {
       this.state = "Evaluating ACT module";
       actResult = await evaluateACT();
+      console.log(actResult)
       this.setACT(actResult);
     }
     if (modules.html) {
@@ -82,7 +82,6 @@ export default {
   height: 140px;
   animation: spin 2s linear infinite;
 }
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);

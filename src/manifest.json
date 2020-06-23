@@ -22,7 +22,7 @@
         "https://*/*"
       ],
       "js": [
-        "content.js"
+        "content.js","act.js","bp.js","html.js","qwPage.js"
       ]
     }
   ],

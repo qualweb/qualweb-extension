@@ -27,6 +27,7 @@ export const getAllRuleCodeAndTitle = (state) => {
     return rules;
 }
 export const getFirstRule = (state) => {
+    console.log(state);
     let modules = Object.keys(state["evaluated"]);
     let evaluated = state["evaluated"];
     let outcomes = state["filter"];
