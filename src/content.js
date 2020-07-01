@@ -18,7 +18,7 @@ function evaluateACT(styleSheets) {
     act = new ACTRules.ACTRules();
     let start = Date.now();
     console.log("Starting evaluation" + start);
-    actResult =  act.execute([], currentPage, JSON.parse(styleSheets));
+    actResult =  act.execute([], currentPage,[]);// JSON.parse(styleSheets)
     console.log("Ending evaluation act" + Math.floor((start - Date.now()) / 1000));
     addValuesToSummary(summary, actResult);
     console.log(summary);
