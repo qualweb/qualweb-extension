@@ -32,6 +32,7 @@ export default {
     let modules = this.getEvaluated();
     let actResult, bpResult, htmlResult, cssResult, summary;
     await starEvaluation();
+    await  processData();
     if (modules.act) {
       this.state = "Evaluating ACT module";
       actResult = await evaluateACT();

@@ -13,7 +13,7 @@ async function starEvaluation() {
     });
 }
 
-async function evaluateACT() {
+async function processData(){
     console.log(styleURLs);
     let url = await getUrl();
     let page = await getUnprocessedPage(url,styleURLs);
@@ -26,10 +26,13 @@ async function evaluateACT() {
     let dom = new Dom.Dom()
     console.log(stylesheets);
     pageStyleSheets= await dom.getDOM(stylesheets, await page.html)
-    pageStyleSheets = JSON.stringify(pageStyleSheets.stylesheets);
+    pageStyleSheets =pageStyleSheets.stylesheets;
+}
+
+async function evaluateACT() {
     return new Promise((resolve, reject) => {
         chrome.devtools.inspectedWindow.eval(
-            'evaluateACT('+pageStyleSheets+')',
+            'evaluateACT('+JSON.stringify(pageStyleSheets)+')',
             { useContentScriptContext: true }
             , (response, exception) => {
                 console.log(response);
@@ -66,10 +69,11 @@ async function evaluateBP() {
 }
 
 async function evaluateCSS() {
+    console.log(pageStyleSheets)
     const cssTechniques = new CSSTechniques.CSSTechniques();
     let report = await cssTechniques.execute(pageStyleSheets);
     console.log(report);
-    return report;
+    return report.assertions;
 }
 
 function endingEvaluation() {
