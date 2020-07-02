@@ -1,15 +1,23 @@
 let borderStyle = "";
-let outlineStyle="";
+let outlineStyle = "";
 let borderRadiusStyle = "";
-let summary,currentPage;
+let summary, currentPage;
 
 
 
 function starEvaluation() {
     // let cssArray = await getCSS(); // nao esquecer de fazer await
-    currentPage = new QWPage.QWPage(document,window);
+    currentPage = new QWPage.QWPage(document, window);
+    let styleLink= currentPage.getElements('link[rel="stylesheet"]');
+    let hrefList = [];
+    for (let style of styleLink) {
+        if (style) {
+            hrefList.push(style.getElementProperty("href"))
+        }
+    }
     //let url = await getUrl();
     summary = { passed: 0, failed: 0, warning: 0, inapplicable: 0, title: "" };
+    return hrefList;
 }
 
 function evaluateACT(styleSheets) {
@@ -18,7 +26,7 @@ function evaluateACT(styleSheets) {
     act = new ACTRules.ACTRules();
     let start = Date.now();
     console.log("Starting evaluation" + start);
-    actResult =  act.execute([], currentPage,[]);// JSON.parse(styleSheets)
+    actResult = act.execute([], currentPage, styleSheets);//JSON.parse(styleSheets));
     console.log("Ending evaluation act" + Math.floor((start - Date.now()) / 1000));
     addValuesToSummary(summary, actResult);
     console.log(summary);
@@ -31,7 +39,7 @@ function evaluateHTML() {
     html = new HTMLTechniques.HTMLTechniques();
     let start = Date.now();
     console.log("Starting evaluation" + start);
-    htmlResult = html.execute(currentPage,false, {});
+    htmlResult = html.execute(currentPage, false, {});
     console.log("Ending evaluation html" + Math.floor((start - Date.now()) / 1000));
     console.log(htmlResult);
     addValuesToSummary(summary, htmlResult);
@@ -77,18 +85,18 @@ async function getIndex() {
 function highlightElement(selector) {
     let element = document.querySelector(selector);
     borderStyle = element.style.border;
-    outlineStyle =element.style.outline;
+    outlineStyle = element.style.outline;
     borderRadiusStyle = element.style.borderRadius;
-    element.style.border= "1px dashed white";
-    element.style.borderRadius= "0px";
-    element.style.outline= "1px dashed black";
+    element.style.border = "1px dashed white";
+    element.style.borderRadius = "0px";
+    element.style.outline = "1px dashed black";
 
 }
 
 function turnOffhighlightElement(selector) {
     let element = document.querySelector(selector);
-    element.style.border= borderStyle;
-    element.style.borderRadius= borderRadiusStyle;
-    element.style.outline= outlineStyle;
+    element.style.border = borderStyle;
+    element.style.borderRadius = borderRadiusStyle;
+    element.style.outline = outlineStyle;
 }
 

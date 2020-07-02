@@ -1,36 +1,35 @@
 let pageStyleSheets = {};
+let styleURLs = [];
 
 async function starEvaluation() {
-    let url = await getUrl();
-    let page = await getUnprocessedPage(url);
-    console.log(await page.html);
-    let stylesheets = {};
-    for (let csssource of Object.keys(page.css)) {
-        console.log(csssource);
-        console.log(await page.css[csssource]);
-        stylesheets[csssource] = await page.css[csssource];
-
-    }
-    let dom = new Dom.Dom()
-    pageStyleSheets= await dom.getDOM(stylesheets, await page.html)
-    pageStyleSheets = JSON.stringify(pageStyleSheets.stylesheets);
-    console.log(`evaluateACT('${pageStyleSheets}' )`);
     return new Promise((resolve, reject) => {
         chrome.devtools.inspectedWindow.eval(
             `starEvaluation()`,
             { useContentScriptContext: true }
             , (response, exception) => {
-                console.log(response);
-                console.log(exception);
+                styleURLs = response;
                 resolve(response);
             })
     });
 }
 
 async function evaluateACT() {
+    console.log(styleURLs);
+    let url = await getUrl();
+    let page = await getUnprocessedPage(url,styleURLs);
+    let stylesheets = {};
+    for (let csssource of Object.keys(page.css)) {
+       
+        stylesheets[csssource] = await page.css[csssource];
+
+    }
+    let dom = new Dom.Dom()
+    console.log(stylesheets);
+    pageStyleSheets= await dom.getDOM(stylesheets, await page.html)
+    pageStyleSheets = JSON.stringify(pageStyleSheets.stylesheets);
     return new Promise((resolve, reject) => {
         chrome.devtools.inspectedWindow.eval(
-            `evaluateACT('${pageStyleSheets}')`,
+            'evaluateACT('+pageStyleSheets+')',
             { useContentScriptContext: true }
             , (response, exception) => {
                 console.log(response);
@@ -102,14 +101,15 @@ async function getTitle() {
     });
 }
 
-async function getUnprocessedPage(url) {
+async function getUnprocessedPage(url,styleURLs) {
     return new Promise((resolve, reject) => {
         chrome.devtools.inspectedWindow.getResources((contents) => {
             let css = {};
             let html;
             for (let content of contents) {
+                //urlResource.substring(urlResource.length - 3, urlResource.length) !== ".js" && urlResource.substring(urlResource.length - 3, urlResource.length) !== ".ts"
                 let urlResource = content.url;
-                if (urlResource.substring(urlResource.length - 4, urlResource.length) === ".css") {
+                if (styleURLs.includes(urlResource)) {
                     let value = getResourceContent(content);
                     css[urlResource] = value;
                 }
