@@ -83,7 +83,7 @@ const config = {
       { from: 'html.js', to: 'html.js' },
       { from: 'bp.js', to: 'bp.js' },
       { from: 'popup/evaluate.js', to: 'popup/evaluate.js' },
-      { from: 'popup/css.js', to: 'popup/css.js' },
+      { from: 'css.js', to: 'css.js' },
       { from: 'popup/dom.js', to: 'popup/dom.js' },
       { from: 'qwPage.js', to: 'qwPage.js' },
       { from: 'icons', to: 'icons', ignore: ['icon.xcf'] },

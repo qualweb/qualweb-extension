@@ -6,7 +6,6 @@ let summary, currentPage;
 
 
 function starEvaluation() {
-    // let cssArray = await getCSS(); // nao esquecer de fazer await
     currentPage = new QWPage.QWPage(document, window);
     let styleLink= currentPage.getElements('link[rel="stylesheet"]');
     let hrefList = [];
@@ -22,11 +21,10 @@ function starEvaluation() {
 
 function evaluateACT(styleSheets) {
     let act, actResult, result;
-    console.log(styleSheets)
     act = new ACTRules.ACTRules();
     let start = Date.now();
     console.log("Starting evaluation" + start);
-    actResult = act.execute([], currentPage, styleSheets);
+    actResult = act.execute([], currentPage, []);
     console.log("Ending evaluation act" + Math.floor((start - Date.now()) / 1000));
     addValuesToSummary(summary, actResult);
     console.log(summary);
@@ -59,8 +57,12 @@ function evaluateBP() {
     return result;
 }
 
-function evaluateCSS() {
-    //TODO
+async function evaluateCSS(pageStyleSheets) {
+    const cssTechniques = new CSSTechniques.CSSTechniques();
+    let report = await cssTechniques.execute(pageStyleSheets);
+    addValuesToSummary(summary, report);
+    console.log(report);
+    return report.assertions;
 }
 
 function endingEvaluation() {

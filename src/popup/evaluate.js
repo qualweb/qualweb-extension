@@ -1,5 +1,6 @@
 let pageStyleSheets = {};
 let styleURLs = [];
+let title = "";
 
 async function starEvaluation() {
     return new Promise((resolve, reject) => {
@@ -7,6 +8,8 @@ async function starEvaluation() {
             `starEvaluation()`,
             { useContentScriptContext: true }
             , (response, exception) => {
+                console.log(response);
+                console.log(exception);
                 styleURLs = response;
                 resolve(response);
             })
@@ -14,9 +17,12 @@ async function starEvaluation() {
 }
 
 async function processData(){
-    console.log(styleURLs);
+    title = await getTitle();
+   /* console.log(styleURLs);
     let url = await getUrl();
+    console.log(url);
     let page = await getUnprocessedPage(url,styleURLs);
+    console.log(page);
     let stylesheets = {};
     for (let csssource of Object.keys(page.css)) {
        
@@ -25,14 +31,15 @@ async function processData(){
     }
     let dom = new Dom.Dom()
     console.log(stylesheets);
+    console.log(await page.html);
     pageStyleSheets= await dom.getDOM(stylesheets, await page.html)
-    pageStyleSheets =pageStyleSheets.stylesheets;
+    pageStyleSheets =pageStyleSheets.stylesheets;*/
 }
 
 async function evaluateACT() {
     return new Promise((resolve, reject) => {
         chrome.devtools.inspectedWindow.eval(
-            'evaluateACT('+JSON.stringify(pageStyleSheets)+')',
+            'evaluateACT('/*+JSON.stringify(pageStyleSheets)+*/+')',
             { useContentScriptContext: true }
             , (response, exception) => {
                 console.log(response);
@@ -69,11 +76,16 @@ async function evaluateBP() {
 }
 
 async function evaluateCSS() {
-    console.log(pageStyleSheets)
-    const cssTechniques = new CSSTechniques.CSSTechniques();
-    let report = await cssTechniques.execute(pageStyleSheets);
-    console.log(report);
-    return report.assertions;
+    return new Promise((resolve, reject) => {
+        chrome.devtools.inspectedWindow.eval(
+            'evaluateCSS('+JSON.stringify(pageStyleSheets)+')',
+            { useContentScriptContext: true }
+            , (response, exception) => {
+                console.log(response);
+                console.log(exception);
+                resolve(response);
+            })
+    });
 }
 
 function endingEvaluation() {
@@ -83,7 +95,7 @@ function endingEvaluation() {
             { useContentScriptContext: true }
             , async (response) => {
                 console.log(response);
-                response.title = await getTitle();
+                response.title = title;
                 resolve(response);
             })
     });
@@ -111,7 +123,6 @@ async function getUnprocessedPage(url,styleURLs) {
             let css = {};
             let html;
             for (let content of contents) {
-                //urlResource.substring(urlResource.length - 3, urlResource.length) !== ".js" && urlResource.substring(urlResource.length - 3, urlResource.length) !== ".ts"
                 let urlResource = content.url;
                 if (styleURLs.includes(urlResource)) {
                     let value = getResourceContent(content);
@@ -119,6 +130,7 @@ async function getUnprocessedPage(url,styleURLs) {
                 }
 
                 if (url === urlResource) {
+                    console.log("html")
                     html = getResourceContent(content)
                 }
             }
@@ -131,6 +143,7 @@ async function getUnprocessedPage(url,styleURLs) {
 async function getResourceContent(content) {
     return new Promise((resolve, reject) => {
         content.getContent((content, encoding) => {
+            console.log(content);
             resolve(content);
         });
     })
