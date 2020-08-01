@@ -9,7 +9,7 @@ Vue.use(Vuex)
 
 export const defaultState = {
   summary: {},
-  evaluated: {},
+  evaluated: {act:false,bp:false,css:false,html:false},
   filter: {},
   act: {},
   currentRule: {}
@@ -19,7 +19,7 @@ export const defaultState = {
 export default new Vuex.Store({
   state: {
     summary: {},
-    evaluated: {},
+    evaluated:  {act:false,bp:false,css:false,html:false},
     filter: {},
     act: {},
     currentRule: {}

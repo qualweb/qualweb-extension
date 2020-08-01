@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions,mapGetters } from "vuex";
 
 export default {
   name: "Checkbox",
@@ -28,12 +28,14 @@ export default {
     };
   },
   methods: {
+         ...mapGetters(["getEvaluated"]),
     ...mapActions(["setEvaluated"]),
     async onChange() {
       await this.setEvaluated({
         module: this.idValue,
         value: this.value
       });
+      console.log(this.getEvaluated())
     },
     focus() {
       this.focusedElem = true;

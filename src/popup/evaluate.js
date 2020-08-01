@@ -1,7 +1,3 @@
-let pageStyleSheets = {};
-let styleURLs = [];
-let title = "";
-
 async function starEvaluation() {
     return new Promise((resolve, reject) => {
         chrome.devtools.inspectedWindow.eval(
@@ -10,36 +6,15 @@ async function starEvaluation() {
             , (response, exception) => {
                 console.log(response);
                 console.log(exception);
-                styleURLs = response;
                 resolve(response);
             })
     });
 }
 
-async function processData(){
-    title = await getTitle();
-   /* console.log(styleURLs);
-    let url = await getUrl();
-    console.log(url);
-    let page = await getUnprocessedPage(url,styleURLs);
-    console.log(page);
-    let stylesheets = {};
-    for (let csssource of Object.keys(page.css)) {
-       
-        stylesheets[csssource] = await page.css[csssource];
-
-    }
-    let dom = new Dom.Dom()
-    console.log(stylesheets);
-    console.log(await page.html);
-    pageStyleSheets= await dom.getDOM(stylesheets, await page.html)
-    pageStyleSheets =pageStyleSheets.stylesheets;*/
-}
-
 async function evaluateACT() {
     return new Promise((resolve, reject) => {
         chrome.devtools.inspectedWindow.eval(
-            'evaluateACT('/*+JSON.stringify(pageStyleSheets)+*/+')',
+            'evaluateACT()',
             { useContentScriptContext: true }
             , (response, exception) => {
                 console.log(response);
@@ -78,7 +53,7 @@ async function evaluateBP() {
 async function evaluateCSS() {
     return new Promise((resolve, reject) => {
         chrome.devtools.inspectedWindow.eval(
-            'evaluateCSS('+JSON.stringify(pageStyleSheets)+')',
+            'evaluateCSS()',
             { useContentScriptContext: true }
             , (response, exception) => {
                 console.log(response);
@@ -95,7 +70,6 @@ function endingEvaluation() {
             { useContentScriptContext: true }
             , async (response) => {
                 console.log(response);
-                response.title = title;
                 resolve(response);
             })
     });
@@ -108,45 +82,4 @@ async function getUrl() {
         })
     });
 }
-async function getTitle() {
-    return new Promise((resolve, reject) => {
-        chrome.runtime.sendMessage({ type: 'title', tabId: chrome.devtools.inspectedWindow.tabId }, (response) => {
-            console.log("response title" + response.title);
-            resolve(response.title);
-        })
-    });
-}
-
-async function getUnprocessedPage(url,styleURLs) {
-    return new Promise((resolve, reject) => {
-        chrome.devtools.inspectedWindow.getResources((contents) => {
-            let css = {};
-            let html;
-            for (let content of contents) {
-                let urlResource = content.url;
-                if (styleURLs.includes(urlResource)) {
-                    let value = getResourceContent(content);
-                    css[urlResource] = value;
-                }
-
-                if (url === urlResource) {
-                    console.log("html")
-                    html = getResourceContent(content)
-                }
-            }
-            resolve({ css, html });
-        });
-    })
-}
-
-
-async function getResourceContent(content) {
-    return new Promise((resolve, reject) => {
-        content.getContent((content, encoding) => {
-            console.log(content);
-            resolve(content);
-        });
-    })
-}
-
 

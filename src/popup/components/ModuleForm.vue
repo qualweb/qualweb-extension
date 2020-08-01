@@ -3,7 +3,7 @@
     <div class="imageContainer">
       <img src="/icons/logoQW.png" alt="QualWeb Logo" class="center" />
     </div>
-    <form @submit="sendFormData">
+    <form @submit="sendFormData" class="formClass">
       <div class="bigContainer">
         <div class="smallContainer">
           <fieldset>
@@ -26,7 +26,7 @@
         </div>
       </div>
 
-      <input type="submit" value="Evaluate" class="submit button" />
+      <input :disabled="isDisabled" type="submit" value="Evaluate" class="submit button center" />
     </form>
   </div>
 </template>
@@ -40,8 +40,6 @@ export default {
   name: "ModuleForm",
   data() {
     return {
-      activeColor: "red",
-      fontSize: 30,
       actIdValue: "act",
       actLabel: "ACT Rules",
       htmlIdValue: "html",
@@ -52,9 +50,19 @@ export default {
       cssLabel: "WCAG 2.1 CSS Techniques"
     };
   },
+  computed: {
+    ...mapGetters({ evaluated: "getEvaluated" }),
+    isDisabled() {
+      return !(
+        this.evaluated &&
+        (this.evaluated.act ||
+          this.evaluated.bp ||
+          this.evaluated.html ||
+          this.evaluated.css)
+      );
+    }
+  },
   methods: {
-    ...mapActions(["setReport", "setCurrentRule"]),
-    ...mapGetters(["getEvaluated", "getFirstRule"]),
     async sendFormData(e) {
       e.preventDefault();
       this.$router.push("/loading");
@@ -65,15 +73,25 @@ export default {
 </script>
 
 <style scoped>
+:disabled {
+  opacity: 0.7;
+}
+fieldset {
+  border-style: solid;
+  border-radius: 0.2em;
+  border-color: white;
+  border-width: 0.1em;
+}
 .formComponent {
   height: 100%;
   overflow: auto;
 }
 .smallContainer {
-  margin-left: 0.2em;
   display: grid;
   flex-direction: column;
   background-color: #393939;
+  padding: 0.8em;
+  border-radius: 0.2em;
 }
 .formContainer {
   margin-top: 1.2em;
@@ -95,6 +113,10 @@ export default {
   background-color: #e15500;
   width: 100%;
   cursor: pointer;
+}
+.formClass {
+  padding-right: 1em;
+  padding-left: 1em;
 }
 
 .button {

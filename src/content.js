@@ -3,23 +3,12 @@ let outlineStyle = "";
 let borderRadiusStyle = "";
 let summary, currentPage;
 
-
-
 function starEvaluation() {
-    currentPage = new QWPage.QWPage(document, window);
-    let styleLink= currentPage.getElements('link[rel="stylesheet"]');
-    let hrefList = [];
-    for (let style of styleLink) {
-        if (style) {
-            hrefList.push(style.getElementProperty("href"))
-        }
-    }
-    //let url = await getUrl();
-    summary = { passed: 0, failed: 0, warning: 0, inapplicable: 0, title: "" };
-    return hrefList;
+    currentPage = new QWPage.QWPage(document, window,true);
+    summary = { passed: 0, failed: 0, warning: 0, inapplicable: 0, title: document.title };
 }
 
-function evaluateACT(styleSheets) {
+function evaluateACT() {
     let act, actResult, result;
     act = new ACTRules.ACTRules();
     let start = Date.now();
@@ -57,9 +46,9 @@ function evaluateBP() {
     return result;
 }
 
-async function evaluateCSS(pageStyleSheets) {
+async function evaluateCSS() {
     const cssTechniques = new CSSTechniques.CSSTechniques();
-    let report = await cssTechniques.execute(pageStyleSheets);
+    let report = await cssTechniques.execute();
     addValuesToSummary(summary, report);
     console.log(report);
     return report.assertions;
@@ -75,14 +64,6 @@ function addValuesToSummary(summary, report) {
     summary.inapplicable += report.metadata.inapplicable;
 }
 
-async function getIndex() {
-    return new Promise((resolve, reject) => {
-        chrome.runtime.sendMessage({ type: 'tabIndex', tabId: chrome.devtools.inspectedWindow.tabId }, (response) => {
-            console.log("response " + response);
-            resolve(response.index);
-        })
-    });
-}
 
 function highlightElement(selector) {
     let element = document.querySelector(selector);
