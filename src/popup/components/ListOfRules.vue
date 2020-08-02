@@ -55,7 +55,6 @@ export default {
   overflow: auto;
   margin-top: 1%;
   border-right: 1px solid white;
-  border-left: 1px solid white;
 }
 
 .passed {

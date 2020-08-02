@@ -121,14 +121,14 @@ button:disabled {
   cursor: auto;
 }
 .index {
-  padding: 1px 6px;
+  padding: 0.1em 0.6em;
 }
 .smallBtn {
   background-color: black;
   border: none;
   color: white;
   cursor: pointer;
-  border-radius: 100px;
+  border-radius:0.1em;
 }
 .btn {
   background-color: black;
@@ -136,7 +136,8 @@ button:disabled {
   border: none;
   color: white;
   cursor: pointer;
-  border-radius: 100px;
+  border-radius: 0.1em;
+  padding: 0.1em 0.6em;
 }
 .container {
   display: flex;

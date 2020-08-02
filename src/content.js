@@ -1,10 +1,8 @@
-let borderStyle = "";
-let outlineStyle = "";
-let borderRadiusStyle = "";
+let selectorToStyle = {};
 let summary, currentPage;
 
 function starEvaluation() {
-    currentPage = new QWPage.QWPage(document, window,true);
+    currentPage = new QWPage.QWPage(document, window, true);
     summary = { passed: 0, failed: 0, warning: 0, inapplicable: 0, title: document.title };
 }
 
@@ -46,12 +44,12 @@ function evaluateBP() {
     return result;
 }
 
-async function evaluateCSS() {
+function evaluateCSS() {
     const cssTechniques = new CSSTechniques.CSSTechniques();
-    let report = await cssTechniques.execute();
+    let report = cssTechniques.execute(currentPage);
     addValuesToSummary(summary, report);
-    console.log(report);
-    return report.assertions;
+    report = report.assertions;
+    return report;
 }
 
 function endingEvaluation() {
@@ -65,21 +63,28 @@ function addValuesToSummary(summary, report) {
 }
 
 
-function highlightElement(selector) {
-    let element = document.querySelector(selector);
-    borderStyle = element.style.border;
-    outlineStyle = element.style.outline;
-    borderRadiusStyle = element.style.borderRadius;
-    element.style.border = "1px dashed white";
-    element.style.borderRadius = "0px";
-    element.style.outline = "1px dashed black";
+function highlightElement(elements) {
+    for (let elementResult of elements) {
+        let selector = elementResult.pointer;
+        let element = document.querySelector(selector);
+        let style = {border:element.style.border,outline: element.style.outline, borderRadius:element.style.borderRadius}
+        selectorToStyle[selector] = style;
+        element.style.border = "1px dashed white";
+        element.style.borderRadius = "0px";
+        element.style.outline = "1px dashed black";
+    }
 
 }
 
-function turnOffhighlightElement(selector) {
-    let element = document.querySelector(selector);
-    element.style.border = borderStyle;
-    element.style.borderRadius = borderRadiusStyle;
-    element.style.outline = outlineStyle;
+function turnOffhighlightElement(elements) {
+    for (let elementResult of elements) {
+        let selector = elementResult.pointer;
+        let element = document.querySelector(selector);
+        let style =  selectorToStyle[selector];
+        element.style.border = style.border;
+        element.style.borderRadius =  style.borderRadius;
+        element.style.outline = style.outline;
+        selectorToStyle[selector]={};
+    }
 }
 

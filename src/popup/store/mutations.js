@@ -28,12 +28,12 @@ export default {
     state.currentRule = payload;
   },
   [types.RESET](state) {
-    state.evaluated= {};
+    state.evaluated = { act: false, bp: false, css: false, html: false };
     state.act = {};
-    state.bp={};
-    state.html={};
-    state.css={};
-    state.summary={};
+    state.bp = {};
+    state.html = {};
+    state.css = {};
+    state.summary = {};
     state.filter = {};
   }
 }

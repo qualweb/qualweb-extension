@@ -10,23 +10,25 @@
       </div>
     </div>
     <div class="center">
-      <h2 class="text">82 tested rules and techniques</h2>
+      <h2
+        class="text"
+      >{{summary.failed + summary.passed + summary.warning + summary.inapplicable }} tested rules and techniques</h2>
     </div>
     <div class="flex-container2">
       <div>
-        <i  aria-label="Passed" class="material-icons passed flexElement">check_circle_outline</i>
+        <i aria-label="Passed" class="material-icons passed flexElement">check_circle_outline</i>
         <span class="flexElement">{{summary.passed}}</span>
       </div>
       <div>
-        <i aria-label="Failed"  class="material-icons failed flexElement">highlight_off</i>
+        <i aria-label="Failed" class="material-icons failed flexElement">highlight_off</i>
         <span class="flexElement">{{summary.failed}}</span>
       </div>
       <div>
-        <i aria-label="Warning"   class="material-icons warning flexElement">warning</i>
+        <i aria-label="Warning" class="material-icons warning flexElement">warning</i>
         <span class="flexElement">{{summary.warning}}</span>
       </div>
       <div>
-        <i aria-label="Inapplicable"  class="material-icons inapplicable flexElement">not_interested</i>
+        <i aria-label="Inapplicable" class="material-icons inapplicable flexElement">not_interested</i>
         <span class="flexElement">{{summary.inapplicable}}</span>
       </div>
     </div>

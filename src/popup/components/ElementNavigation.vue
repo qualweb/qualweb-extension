@@ -25,7 +25,7 @@ export default {
   },
   beforeUpdate() {
     if (this.lastHighlightElement !== null) {
-     let selector = this.lastHighlightElement.pointer;
+      let selector = this.lastHighlightElement.pointer;
       chrome.devtools.inspectedWindow.eval(
         `turnOffhighlightElement("${selector}")`,
         { useContentScriptContext: true }
@@ -39,17 +39,18 @@ export default {
     highlightElement(index) {
       let element = this.elements[index - 1];
       this.lastHighlightElement = element;
-      let selector = element.pointer;
-      chrome.devtools.inspectedWindow.eval(`highlightElement("${selector}")`, {
-        useContentScriptContext: true
-      });
+      let elements = element.elements;
+      chrome.devtools.inspectedWindow.eval(
+        "highlightElement(" + JSON.stringify(elements) + ")",
+        { useContentScriptContext: true }
+      );
     },
     offHighlightElement(index) {
       this.lastHighlightElement = null;
       let element = this.elements[index - 1];
-      let selector = element.pointer;
+      let elements = element.elements;
       chrome.devtools.inspectedWindow.eval(
-        `turnOffhighlightElement("${selector}")`,
+        "turnOffhighlightElement(" + JSON.stringify(elements) + ")",
         { useContentScriptContext: true }
       );
     }
