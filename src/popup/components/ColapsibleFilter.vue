@@ -77,12 +77,14 @@ p {
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   text-align: center;
+  margin-top: 0rem;
 }
 .column {
   width: 100%;
   padding: 1rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  padding-bottom: 0rem;
 }
 .border {
   border-right: 0.01em solid white;
@@ -93,7 +95,7 @@ p {
 }
 /* Style the button that is used to open and close the collapsible content */
 .collapsible {
-  background-color: #303030;
+  background-color: #383838;
   color: white;
   cursor: pointer;
   padding: 0.6rem 1rem;
@@ -119,6 +121,7 @@ p {
   margin-bottom: 0.2rem;
   background-color: #383838;
   border-radius: 0.2rem;
+  border: 0.01em solid #888585;
 }
 .none {
   display: none;
