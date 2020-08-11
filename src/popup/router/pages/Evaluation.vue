@@ -1,19 +1,21 @@
 <template>
   <div class="bigContainer">
     <Summary></Summary>
+    <ColapsibleFilter></ColapsibleFilter>
     <div class="container-1">
       <div class="column-1">
-        <FilterByResult :items="['All outcomes','Passed','Failed','Warning','Inapplicable']" ></FilterByResult>
         <ListOfRules v-on:focusContent="focusListContent()"></ListOfRules>
       </div>
       <div class="column-2">
-        <ListContent ref="content" ></ListContent>
+        <ListContent ref="content"></ListContent>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+// <FilterByResult :items="['All outcomes','Passed','Failed','Warning','Inapplicable']" ></FilterByResult>
+import ColapsibleFilter from "../../components/ColapsibleFilter.vue";
 import Summary from "../../components/Summary.vue";
 import ListOfRules from "../../components/ListOfRules.vue";
 import ListContent from "../../components/ListContent.vue";
@@ -22,31 +24,32 @@ import { mapGetters } from "vuex";
 
 export default {
   components: {
+    ColapsibleFilter,
     Summary,
     ListOfRules,
     ListContent,
     FilterByResult
   },
-  methods:{
-    focusListContent(){
-      console.log("trying to focus")
-      this.$refs.content.$el.focus()
+  methods: {
+    focusListContent() {
+      console.log("trying to focus");
+      this.$refs.content.$el.focus();
     }
-
   }
 };
 </script>
 
 <style lang="scss" scoped>
-p {
-  font-size: 20px;
-}
+
 .column-1 {
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow: hidden;
   margin-left: 0.2em;
+  margin-right: 0.4em;
+
+  
 }
 .bigContainer {
   height: 100vh;
@@ -79,18 +82,17 @@ p {
 }
 .column-2 {
   overflow-y: auto;
-  border-top: 1px solid white;
 }
 @media only screen and (max-width: 700px) {
-
-.container-1  {
-  display: flex;
-  flex-direction: column;
-
-}
-.column-2 {flex: 2;}
-.column-1 {flex: 1;}
-  
-
+  .container-1 {
+    display: flex;
+    flex-direction: column;
+  }
+  .column-2 {
+    flex: 2;
+  }
+  .column-1 {
+    flex: 1;
+  }
 }
 </style>

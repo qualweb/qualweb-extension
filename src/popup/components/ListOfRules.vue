@@ -31,7 +31,7 @@ export default {
     ...mapGetters(["getCurrentRule"]),
     changeRule(rule) {
       this.setCurrentRule({ code: rule.code, module: rule.module });
-      this.$emit("focusContent")
+      this.$emit("focusContent");
     }
   },
   computed: mapGetters({ rules: "getAllRuleCodeAndTitle" })
@@ -40,20 +40,21 @@ export default {
 
 <style scoped>
 .listRule {
+  border-radius: 0.3em;
   background-color: #383838;
-  border: 1px solid white;
-  border-right: none;
+  border: 0.01em solid #888585;
   padding: 1em;
   color: white;
   font-size: 1em;
   text-align: left;
+  margin-bottom: 0.1em;
+  margin-right: 0.2em;
 }
 .container {
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow: auto;
-  margin-top: 1%;
   border-right: 1px solid white;
 }
 
