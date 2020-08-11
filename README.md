@@ -27,9 +27,8 @@ In the browser go to <chrome://extensions/> and enable developer mode in the top
 To add the extension press Load Unpacked in the top left corner and select the dist folder.
 Only the ACT,BP and HTML modules are available.
 
-padding lef right 0.25 em column filters
-mudar tipo de letra e tamanho nos filtros
-diminuir border radius em tudo
+-mudar tipo de letra e tamanho nos filtros
+-diminuir border radius em tudo
 mudar margin da column dos filters
 mudar em para rem
 column-1 -background-color: #303030;

@@ -121,14 +121,14 @@ button:disabled {
   cursor: auto;
 }
 .index {
-  padding: 0.1em 0.6em;
+  padding: 0.1em 0.6rem;
 }
 .smallBtn {
   background-color: black;
   border: none;
   color: white;
   cursor: pointer;
-  border-radius:0.1em;
+  border-radius:0.1rem;
 }
 .btn {
   background-color: black;
@@ -136,14 +136,14 @@ button:disabled {
   border: none;
   color: white;
   cursor: pointer;
-  border-radius: 0.1em;
-  padding: 0.1em 0.6em;
+  border-radius: 0.1rem;
+  padding: 0.1em 0.6rem;
 }
 .container {
   display: flex;
   justify-content: space-between;
   background-color: black;
-  padding: 0.2em;
+  padding: 0.2rem;
 }
 .flexElement {
   color: white;
@@ -152,7 +152,7 @@ button:disabled {
   vertical-align: middle;
 }
 .flexElement {
-  font-size: 1.3em;
+  font-size: 1.3rem;
   display: inline-flex;
   vertical-align: middle;
 }

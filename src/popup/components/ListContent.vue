@@ -43,6 +43,6 @@ export default {
   text-align: center;
 }
 .text {
-  padding: 1em;
+  padding: 1rem;
 }
 </style>

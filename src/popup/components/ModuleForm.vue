@@ -77,10 +77,9 @@ export default {
   opacity: 0.7;
 }
 fieldset {
-  border-style: solid;
-  border-radius: 0.2em;
-  border-color: white;
-  border-width: 0.1em;
+  border-radius: 0.2rem;
+  border: 0.01rem solid #888585;
+
 }
 .formComponent {
   height: 100%;
@@ -90,42 +89,42 @@ fieldset {
   display: grid;
   flex-direction: column;
   background-color: #393939;
-  padding: 0.8em;
-  border-radius: 0.2em;
+  padding: 0.8rem;
+  border-radius: 0.2rem;
 }
 .formContainer {
-  margin-top: 1.2em;
+  margin-top: 1.2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
-  grid-row-gap: 1em;
+  grid-row-gap: 1rem;
 }
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 22em;
+  width: 22rem;
 }
 
 .submit {
   font-size: 18pt;
-  margin-top: 2em;
+  margin-top: 2rem;
   background-color: #e15500;
   width: 100%;
   cursor: pointer;
 }
 .formClass {
-  padding-right: 1em;
-  padding-left: 1em;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 .button {
   display: block;
-  padding: 0.4em 0.8em;
+  padding: 0.4em 0.8rem;
   border: none;
   text-align: center;
   text-decoration: none;
-  border-radius: 0.2em;
+  border-radius: 0.2rem;
   color: white;
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
@@ -133,19 +132,19 @@ fieldset {
 
 .legend {
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 @media only screen and (max-height: 450px) {
   .bigContainer {
-    margin-top: 1.2em;
+    margin-top: 1.2rem;
   }
   .formComponent {
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
   .center {
-    width: 20em;
+    width: 20rem;
   }
   .imageContainer {
     display: grid;
@@ -155,7 +154,7 @@ fieldset {
 
 @media only screen and (max-height: 320px) {
   .bigContainer {
-    margin-top: 1.2em;
+    margin-top: 1.2rem;
   }
   .formContainer {
     display: flex;
@@ -167,11 +166,11 @@ fieldset {
   .formComponent {
     display: flex;
     flex-direction: column;
-    margin-right: 1em;
-    margin-left: 1em;
+    margin-right: 1rem;
+    margin-left: 1rem;
   }
   .smallContainer {
-    margin-left: 0em;
+    margin-left: 0rem;
   }
 }
 
@@ -179,7 +178,7 @@ fieldset {
   .formContainer {
     display: flex;
     flex-flow: column;
-    margin-left: 1em;
+    margin-left: 1rem;
   }
 }
 </style>

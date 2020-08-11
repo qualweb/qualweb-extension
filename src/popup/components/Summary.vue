@@ -78,7 +78,7 @@ export default {
   margin: auto;
 }
 .flexElement {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   display: inline-flex;
   vertical-align: middle;
 }
@@ -90,7 +90,7 @@ export default {
   display: grid;
   justify-content: center;
   grid-template-columns: auto auto auto auto;
-  grid-column-gap: 3em;
+  grid-column-gap: 3rem;
   align-content: center;
 }
 .buttons {
@@ -102,7 +102,7 @@ export default {
   flex: 1;
 }
 .bigContainerSummary {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5rem;
 }
 .titleButtons {
   display: grid;

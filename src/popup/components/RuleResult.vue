@@ -33,7 +33,7 @@ export default {
 
 <style>
 .result{
-   padding: 0.8em;
+   padding: 0.8rem;
 }
 
 </style>

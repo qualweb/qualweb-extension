@@ -79,13 +79,13 @@ export default {
 .md-checkbox label {
   cursor: pointer;
   display: inline;
-  line-height: 1.25em;
+  line-height: 1.25rem;
   vertical-align: top;
   clear: both;
   padding-left: 1px;
 }
 .md-checkbox label:not(:empty) {
-  padding-left: 0.75em;
+  padding-left: 0.75rem;
 }
 .md-checkbox label:before,
 .md-checkbox label:after {
@@ -95,17 +95,17 @@ export default {
   top: 0;
 }
 .md-checkbox label:before {
-  width: 1.25em;
-  height: 1.25em;
+  width: 1.25rem;
+  height: 1.25rem;
   background: #ffff;
   border: 2px solid var(--boxColor);
-  border-radius: 0.125em;
+  border-radius: 0.125rem;
   cursor: pointer;
   transition: background 0.3s;
 }
 .md-checkbox input[type="checkbox"] {
   outline: 0;
-  width: 1.25em;
+  width: 1.25rem;
   margin: 0;
   display: block;
   float: left;
@@ -117,8 +117,8 @@ export default {
 }
 .md-checkbox input[type="checkbox"]:checked + label:after {
   transform: translate(0.25em, 0.3365384615em) rotate(-45deg);
-  width: 0.75em;
-  height: 0.375em;
+  width: 0.75rem;
+  height: 0.375rem;
   border: 0.125em solid #000;
   border-top-style: none;
   border-right-style: none;

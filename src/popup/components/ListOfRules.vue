@@ -40,17 +40,18 @@ export default {
 
 <style scoped>
 .listRule {
-  border-radius: 0.3em;
-  background-color: #383838;
+  border-radius: 0.2rem;
   border: 0.01em solid #888585;
-  padding: 1em;
+  background-color: #383838;
+  padding: 1rem;
   color: white;
-  font-size: 1em;
+  font-size: 1rem;
   text-align: left;
-  margin-bottom: 0.1em;
-  margin-right: 0.2em;
+  margin-bottom: 0.2rem;
+  margin-right: 0.2rem;
 }
 .container {
+  background-color: #303030;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -75,7 +76,7 @@ export default {
   margin: auto;
 }
 .flexElement {
-  font-size: 1.3em;
+  font-size: 1.3rem;
   display: inline-flex;
   vertical-align: middle;
 }

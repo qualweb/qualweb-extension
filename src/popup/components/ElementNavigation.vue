@@ -72,6 +72,7 @@ export default {
 
 <style>
 .menu {
-  border: 1px solid white;
+  border-radius: 0.2rem;
+  border: 0.01rem solid #888585;
 }
 </style>

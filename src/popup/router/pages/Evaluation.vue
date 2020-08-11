@@ -46,8 +46,7 @@ export default {
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  margin-left: 0.2em;
-  margin-right: 0.4em;
+  margin-left: 0.2rem;
 
   
 }
@@ -64,8 +63,8 @@ export default {
   background-color: #393939;
   height: 82vh;
   /*
-      grid-column-gap:1em;
-      grid-row-gap:1em;
+      grid-column-gap:1rem;
+      grid-row-gap:1rem;
       */
 }
 .title {
@@ -73,12 +72,12 @@ export default {
   font-weight: 900;
 }
 .summary {
-  font-size: 1em;
+  font-size: 1rem;
   border-right: 1px solid white;
   border-left: 1px solid white;
   border-top: 1px solid white;
   color: white;
-  padding: 1em;
+  padding: 1rem;
 }
 .column-2 {
   overflow-y: auto;

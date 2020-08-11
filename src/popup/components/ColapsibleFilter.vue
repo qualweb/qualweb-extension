@@ -72,34 +72,42 @@ export default {
 </script>
 
 <style scoped>
+p {
+  font-size: 1.3rem;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+}
 .column {
   width: 100%;
-  padding: 1em;
+  padding: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
-.border{
-    border-right: 0.01em solid white;
+.border {
+  border-right: 0.01em solid white;
 }
 .filter {
-  padding-right: 0.2em;
-  padding-left: 0.2em;
+  padding-right: 0.2rem;
+  padding-left: 0.2rem;
 }
 /* Style the button that is used to open and close the collapsible content */
 .collapsible {
   background-color: #303030;
   color: white;
   cursor: pointer;
-  padding: 1em;
+  padding: 0.6rem 1rem;
   width: 100%;
   border: none;
   text-align: left;
   outline: none;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   border: 0.01em solid #888585;
-  border-radius: 0.3em;
-  margin-bottom: 0.1em;
-  margin: 0.2em;
+  border-radius: 0.2rem;
+  margin-bottom: 0.1rem;
+  margin: 0.2rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -108,9 +116,9 @@ export default {
 .content {
   display: none;
   overflow: hidden;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.2rem;
   background-color: #383838;
-  border-radius: 0.3em;
+  border-radius: 0.2rem;
 }
 .none {
   display: none;
