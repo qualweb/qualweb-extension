@@ -101,8 +101,8 @@ export default {
 .md-checkbox label:before {
   width: 1.25rem;
   height: 1.25rem;
-  background:  var(--bg-color);
-  border: 2px solid var(--boxColor);
+  background:  transparent;
+  border: 2px solid white;
   border-radius: 0.125rem;
   cursor: pointer;
   transition: background 0.3s;
