@@ -1,6 +1,6 @@
 <template >
   <div>
-    <div class="md-checkbox">
+    <div class="md-checkbox"  :style="cssVars">
       <input
         @focus="focus()"
         @blur="blur()"
@@ -10,32 +10,36 @@
         :id="idValue"
         type="checkbox"
       />
-      <label v-bind:class="{ 'focused': focusedElem }" :for="idValue">{{label}}</label>
+      <label v-bind:class="[{ 'focused': focusedElem }]" :for="idValue">{{label}}</label>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions,mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Checkbox",
-  props: ["idValue", "label"],
+  props: ["idValue", "label","bgColor","checkColor"],
   data() {
     return {
       value: false,
-      focusedElem: false
+      focusedElem: false,
     };
   },
+  computed: {
+    cssVars() {
+      return {
+        "--bg-color": this.bgColor,
+        "--bg-check": this.checkColor
+      };
+    }
+  },
   methods: {
-         ...mapGetters(["getEvaluated"]),
-    ...mapActions(["setEvaluated"]),
+    
     async onChange() {
-      await this.setEvaluated({
-        module: this.idValue,
-        value: this.value
-      });
-      console.log(this.getEvaluated())
+      console.log("emitcheckBoxChanged");
+       this.$emit("checkBoxChanged",this.idValue,this.value);
     },
     focus() {
       this.focusedElem = true;
@@ -97,7 +101,7 @@ export default {
 .md-checkbox label:before {
   width: 1.25rem;
   height: 1.25rem;
-  background: #ffff;
+  background:  var(--bg-color);
   border: 2px solid var(--boxColor);
   border-radius: 0.125rem;
   cursor: pointer;
@@ -112,14 +116,14 @@ export default {
   font-size: inherit;
 }
 .md-checkbox input[type="checkbox"]:checked + label:before {
-  background: #ffff;
+  background: var(--bg-color);
   border: none;
 }
 .md-checkbox input[type="checkbox"]:checked + label:after {
   transform: translate(0.25em, 0.3365384615em) rotate(-45deg);
   width: 0.75rem;
   height: 0.375rem;
-  border: 0.125em solid #000;
+  border: 0.125em solid var(--bg-check);
   border-top-style: none;
   border-right-style: none;
 }

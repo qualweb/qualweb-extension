@@ -6,16 +6,36 @@
         <p>Outcome</p>
         <ul class="module">
           <li>
-            <Checkbox :idValue="passedIdValue" :label="passedLabel"></Checkbox>
+            <Checkbox
+              :idValue="passedIdValue"
+              :label="passedLabel"
+              :bgColor="passedColor"
+              :checkColor="checkColor"
+            ></Checkbox>
           </li>
           <li>
-            <Checkbox :idValue="failedIdValue" :label="failedLabel"></Checkbox>
+            <Checkbox
+              :idValue="failedIdValue"
+              :label="failedLabel"
+              :bgColor="failedColor"
+              :checkColor="checkColor"
+            ></Checkbox>
           </li>
           <li>
-            <Checkbox :idValue="warningIdValue" :label="warningLabel"></Checkbox>
+            <Checkbox
+              :idValue="warningIdValue"
+              :label="warningLabel"
+              :bgColor="warningColor"
+              :checkColor="checkColor"
+            ></Checkbox>
           </li>
           <li>
-            <Checkbox :idValue="inapplicableIdValue" :label="inapplicableLabel"></Checkbox>
+            <Checkbox
+              :idValue="inapplicableIdValue"
+              :label="inapplicableLabel"
+              :bgColor="bgColor"
+              :checkColor="checkColor"
+            ></Checkbox>
           </li>
         </ul>
       </div>
@@ -23,10 +43,20 @@
         <p>Module</p>
         <ul class="module">
           <li>
-            <Checkbox :idValue="actIdValue" :label="actLabel"></Checkbox>
+            <Checkbox
+              :idValue="actIdValue"
+              :label="actLabel"
+              :bgColor="bgColor"
+              :checkColor="checkColor"
+            ></Checkbox>
           </li>
           <li>
-            <Checkbox :idValue="tecniquesIdValue" :label="tecniquesLabel"></Checkbox>
+            <Checkbox
+              :idValue="tecniquesIdValue"
+              :label="tecniquesLabel"
+              :bgColor="bgColor"
+              :checkColor="checkColor"
+            ></Checkbox>
           </li>
         </ul>
       </div>
@@ -52,7 +82,12 @@ export default {
       warningIdValue: "warning",
       warningLabel: "Warning",
       inapplicableIdValue: " inapplicable",
-      inapplicableLabel: " Inapplicable"
+      inapplicableLabel: " Inapplicable",
+      passedColor: "#46f73f",
+      failedColor: "#ff3535",
+      warningColor: "#ffd600",
+      bgColor: "white",
+      checkColor: "black"
     };
   },
   methods: {

@@ -10,18 +10,11 @@
             <legend class="legend">Select the modules to evaluate:</legend>
             <ul class="formContainer">
               <li>
-                <Checkbox :idValue="actIdValue" :label="actLabel"></Checkbox>
+                <Checkbox  @checkBoxChanged="updateEvaluated" :idValue="actIdValue" :label="actLabel" :bgColor="bgColor" :checkColor="checkColor"></Checkbox>
               </li>
               <li>
-                <Checkbox :idValue="htmlIdValue" :label="htmlLabel"></Checkbox>
+                <Checkbox  @checkBoxChanged="updateEvaluated" :idValue="htmlIdValue" :label="htmlLabel"  :bgColor="bgColor" :checkColor="checkColor"></Checkbox>
               </li>
-              <li>
-                <Checkbox :idValue="bpIdValue" :label="bpLabel"></Checkbox>
-              </li>
-              <li>
-                <Checkbox :idValue="cssIdValue" :label="cssLabel"></Checkbox>
-              </li>
-            </ul>
           </fieldset>
         </div>
       </div>
@@ -44,10 +37,8 @@ export default {
       actLabel: "ACT Rules",
       htmlIdValue: "html",
       htmlLabel: "WCAG 2.1 HTML Techniques",
-      bpIdValue: "bp",
-      bpLabel: "Best Practices",
-      cssIdValue: "css",
-      cssLabel: "WCAG 2.1 CSS Techniques"
+      bgColor:"white",
+      checkColor:"black"
     };
   },
   computed: {
@@ -63,10 +54,18 @@ export default {
     }
   },
   methods: {
+     ...mapActions(["setEvaluated"]),
     async sendFormData(e) {
       e.preventDefault();
       this.$router.push("/loading");
+    },
+    async updateEvaluated(idValue,value){
+        await this.setEvaluated({
+        module: idValue,
+        value:value
+      });
     }
+
   },
   components: { Checkbox }
 };
