@@ -11,7 +11,7 @@
               :label="passedLabel"
               :bgColor="passedColor"
               :checkColor="checkColor"
-              @checkBoxChanged="updateResult"
+              @checkBoxChanged="updateFilter"
               :value="filter.passed"
             ></Checkbox>
           </li>
