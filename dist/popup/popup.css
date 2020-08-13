@@ -190,29 +190,27 @@ fieldset[data-v-091170ff] {
 }
 
 
-p[data-v-15ba5ebe] {
+p[data-v-21939218] {
   font-size: 1.3rem;
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   text-align: center;
   margin-top: 0rem;
 }
-.column[data-v-15ba5ebe] {
+.column[data-v-21939218] {
   width: 100%;
   padding: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
   padding-bottom: 0rem;
 }
-.border[data-v-15ba5ebe] {
+.border[data-v-21939218] {
   border-right: 0.01em solid white;
 }
-.filter[data-v-15ba5ebe] {
+.filter[data-v-21939218] {
   padding-right: 0.2rem;
   padding-left: 0.2rem;
 }
 /* Style the button that is used to open and close the collapsible content */
-.collapsible[data-v-15ba5ebe] {
+.collapsible[data-v-21939218] {
   background-color: #383838;
   color: white;
   cursor: pointer;
@@ -233,7 +231,7 @@ p[data-v-15ba5ebe] {
 }
 
 /* Style the collapsible content. Note: hidden by default */
-.content[data-v-15ba5ebe] {
+.content[data-v-21939218] {
   display: none;
   overflow: hidden;
   margin-bottom: 0.2rem;
@@ -241,10 +239,10 @@ p[data-v-15ba5ebe] {
   border-radius: 0.2rem;
   border: 0.01em solid #888585;
 }
-.none[data-v-15ba5ebe] {
+.none[data-v-21939218] {
   display: none;
 }
-.visible[data-v-15ba5ebe] {
+.visible[data-v-21939218] {
   display: flex;
   flex-direction: row;
 }

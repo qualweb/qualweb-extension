@@ -117,8 +117,6 @@ p {
 .column {
   width: 100%;
   padding: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
   padding-bottom: 0rem;
 }
 .border {
