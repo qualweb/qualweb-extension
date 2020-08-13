@@ -12,7 +12,7 @@
               :bgColor="passedColor"
               :checkColor="checkColor"
               @checkBoxChanged="updateResult"
-              :value="passedValue"
+              :value="filter.passed"
             ></Checkbox>
           </li>
           <li>
@@ -22,7 +22,7 @@
               :bgColor="failedColor"
               :checkColor="checkColor"
               @checkBoxChanged="updateFilter"
-              :value="failedValue"
+              :value="filter.failed"
             ></Checkbox>
           </li>
           <li>
@@ -32,7 +32,7 @@
               :bgColor="warningColor"
               :checkColor="checkColor"
               @checkBoxChanged="updateFilter"
-              :value="warningValue"
+              :value="filter.warning"
             ></Checkbox>
           </li>
           <li>
@@ -42,7 +42,7 @@
               :bgColor="bgColor"
               :checkColor="checkColor"
               @checkBoxChanged="updateFilter"
-              :value="inapplicableValue"
+              :value="filter.inapplicable"
             ></Checkbox>
           </li>
         </ul>
@@ -57,7 +57,7 @@
               :bgColor="bgColor"
               :checkColor="checkColor"
               @checkBoxChanged="updateFilter"
-              :value="actValue"
+              :value="filter.act"
             ></Checkbox>
           </li>
           <li>
@@ -67,7 +67,7 @@
               :bgColor="bgColor"
               :checkColor="checkColor"
               @checkBoxChanged="updateFilter"
-              :value="tecniquesValue"
+              :value="filter.html"
             ></Checkbox>
           </li>
         </ul>
@@ -87,22 +87,16 @@ export default {
       isOpen: false,
       actIdValue: "act",
       actLabel: "ACT Rules",
-      actValue: true,
-      tecniquesIdValue: "tecniques",
+      tecniquesIdValue: "html",
       tecniquesLabel: "WCAG 2.1 Techniques",
-      tecniquesValue: false,
       passedIdValue: "passed",
-      passedValue: true,
       passedLabel: "Passed",
       failedIdValue: "failed",
       failedLabel: "Failed",
-      failedValue: true,
       warningIdValue: "warning",
       warningLabel: "Warning",
-      warningValue: true,
-      inapplicableIdValue: " inapplicable",
+      inapplicableIdValue: "inapplicable",
       inapplicableLabel: " Inapplicable",
-      inapplicableValue: false,
       passedColor: "#46f73f",
       failedColor: "#ff3535",
       warningColor: "#ffd600",
@@ -110,9 +104,9 @@ export default {
       checkColor: "black"
     };
   },
+    computed: mapGetters({ filter: "getFilter" }),
   methods: {
-    ...mapGetters("getFilter","getFirstRule"),
-    ...mapActions(["setFilter", "setCurrentRule"]),
+    ...mapActions(["setFilter"]),
 
     changeState() {
       this.isOpen = !this.isOpen;
@@ -123,10 +117,6 @@ export default {
         value: value
       });
     }
-  },
-  mounted() {
-    // console.log(this.getFilter());
-    //this.setCurrentRule(this.getFirstRule());
   },
   components: {
     Checkbox

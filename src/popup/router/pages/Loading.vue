@@ -19,7 +19,8 @@ export default {
       "setBP",
       "setCSS",
       "setSummary",
-      "setCurrentRule"
+      "setCurrentRule",
+      "setStartingFilter"
     ]),
     ...mapGetters(["getEvaluated", "getFirstRule"])
   },
@@ -57,6 +58,7 @@ export default {
     this.state = "Ending evaluation";
     summary = await endingEvaluation();
     this.setSummary(summary);
+    this.setStartingFilter(modules);
     this.setCurrentRule(this.getFirstRule());
     this.$router.push("/evaluation");
   }

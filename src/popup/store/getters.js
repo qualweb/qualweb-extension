@@ -8,18 +8,18 @@ export const getCurrentRule = (state) => {
 export const getAllRuleCodeAndTitle = (state) => {
     let modules = Object.keys(state["evaluated"]);
     let evaluated = state["evaluated"];
-    let outcomes = state["filter"];
+    let filter = state["filter"];
     let keys, ruleOutcome;
     let rules = [];
     let value, moduleState;
     for (let module of modules) {
-        if (evaluated[module]) {
+        if (evaluated[module] && filter[module]) {
             keys = Object.keys(state[module]);
             moduleState = state[module];
             for (let key of keys) {
                 value = moduleState[key];
                 ruleOutcome = value["metadata"]["outcome"];
-                if (testOutcome(outcomes, ruleOutcome))
+                if (filter[ruleOutcome])
                     rules.push({ title: value["name"], code: value["code"], outcome: value["metadata"]["outcome"], module: module });
             }
         }
@@ -30,20 +30,20 @@ export const getFirstRule = (state) => {
     console.log(state);
     let modules = Object.keys(state["evaluated"]);
     let evaluated = state["evaluated"];
-    let outcomes = state["filter"];
+    let filter = state["filter"];
     let keys;
     let value, moduleState, result;
     let done = false;
     let index, ruleOutcome;
     for (let module of modules) {
         index = 0;
-        if (evaluated[module]) {
+        if (evaluated[module] && filter[module]) {
             keys = Object.keys(state[module]);
             moduleState = state[module];
             while (!done && index < keys.length) {
                 value = moduleState[keys[index]];
                 ruleOutcome = value["metadata"]["outcome"];
-                if (testOutcome(outcomes, ruleOutcome)) {
+                if (filter[ruleOutcome]) {
                     result = { code: value["code"], module: module };
                     done = true;
                 }
@@ -67,11 +67,4 @@ export const getAllData = (state) => {
         css: state.css
     }
 }
-function testOutcome(filter, ruleOutcome) {
-    let result = false;
 
-    if (filter === ruleOutcome || filter === "all outcomes" ||true)//fixme
-        result = true;
-    return result;
-
-}

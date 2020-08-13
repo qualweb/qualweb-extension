@@ -27,7 +27,7 @@ export default {
   },
   [types.SETFILTER](state, payload) {
 
-    state.filter[payload.key] = value;
+    state.filter[payload.key] = payload.value;
     console.log(state.filter);
   },
   [types.SETCURRENTRULE](state, payload) {
