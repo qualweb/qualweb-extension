@@ -5,6 +5,7 @@ export const SETBP = 'SETBP';
 export const SETSUMMARY = 'SETSUMMARY';
 export const SETEVAL = 'SETEVAL';
 export const SETFILTER = 'SETFILTER';
+export const SETALLFILTER = 'SETALLFILTER';
 export const SETCURRENTRULE = 'SETCURRENTRULE';
 export const RESET = 'RESET';
 

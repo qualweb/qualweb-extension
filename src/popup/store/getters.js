@@ -56,7 +56,7 @@ export const getFirstRule = (state) => {
     return result;
 }
 
-
+export const getFilter = (state) => state.filter
 export const getSummary = (state) => state.summary
 export const getAllData = (state) => {
     return {
@@ -70,7 +70,7 @@ export const getAllData = (state) => {
 function testOutcome(filter, ruleOutcome) {
     let result = false;
 
-    if (filter === ruleOutcome || filter === "all outcomes")
+    if (filter === ruleOutcome || filter === "all outcomes" ||true)//fixme
         result = true;
     return result;
 

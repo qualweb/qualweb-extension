@@ -16,14 +16,12 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Checkbox",
-  props: ["idValue", "label","bgColor","checkColor"],
+  props: ["idValue", "label","bgColor","checkColor","value"],
   data() {
     return {
-      value: false,
       focusedElem: false,
     };
   },

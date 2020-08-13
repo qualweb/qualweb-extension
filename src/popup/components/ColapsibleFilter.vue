@@ -11,6 +11,8 @@
               :label="passedLabel"
               :bgColor="passedColor"
               :checkColor="checkColor"
+              @checkBoxChanged="updateResult"
+              :value="passedValue"
             ></Checkbox>
           </li>
           <li>
@@ -19,6 +21,8 @@
               :label="failedLabel"
               :bgColor="failedColor"
               :checkColor="checkColor"
+              @checkBoxChanged="updateFilter"
+              :value="failedValue"
             ></Checkbox>
           </li>
           <li>
@@ -27,6 +31,8 @@
               :label="warningLabel"
               :bgColor="warningColor"
               :checkColor="checkColor"
+              @checkBoxChanged="updateFilter"
+              :value="warningValue"
             ></Checkbox>
           </li>
           <li>
@@ -35,6 +41,8 @@
               :label="inapplicableLabel"
               :bgColor="bgColor"
               :checkColor="checkColor"
+              @checkBoxChanged="updateFilter"
+              :value="inapplicableValue"
             ></Checkbox>
           </li>
         </ul>
@@ -48,6 +56,8 @@
               :label="actLabel"
               :bgColor="bgColor"
               :checkColor="checkColor"
+              @checkBoxChanged="updateFilter"
+              :value="actValue"
             ></Checkbox>
           </li>
           <li>
@@ -56,6 +66,8 @@
               :label="tecniquesLabel"
               :bgColor="bgColor"
               :checkColor="checkColor"
+              @checkBoxChanged="updateFilter"
+              :value="tecniquesValue"
             ></Checkbox>
           </li>
         </ul>
@@ -66,6 +78,8 @@
 
 <script>
 import Checkbox from "./Checkbox.vue";
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "ColapsibleFilter",
   data() {
@@ -73,16 +87,22 @@ export default {
       isOpen: false,
       actIdValue: "act",
       actLabel: "ACT Rules",
+      actValue: true,
       tecniquesIdValue: "tecniques",
       tecniquesLabel: "WCAG 2.1 Techniques",
+      tecniquesValue: false,
       passedIdValue: "passed",
+      passedValue: true,
       passedLabel: "Passed",
       failedIdValue: "failed",
       failedLabel: "Failed",
+      failedValue: true,
       warningIdValue: "warning",
       warningLabel: "Warning",
+      warningValue: true,
       inapplicableIdValue: " inapplicable",
       inapplicableLabel: " Inapplicable",
+      inapplicableValue: false,
       passedColor: "#46f73f",
       failedColor: "#ff3535",
       warningColor: "#ffd600",
@@ -91,9 +111,22 @@ export default {
     };
   },
   methods: {
+    ...mapGetters("getFilter","getFirstRule"),
+    ...mapActions(["setFilter", "setCurrentRule"]),
+
     changeState() {
       this.isOpen = !this.isOpen;
+    },
+    async updateFilter(idValue, value) {
+      await this.setFilter({
+        key: idValue,
+        value: value
+      });
     }
+  },
+  mounted() {
+    // console.log(this.getFilter());
+    //this.setCurrentRule(this.getFirstRule());
   },
   components: {
     Checkbox

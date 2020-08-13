@@ -9,7 +9,7 @@ export const setReport = (async function ({ commit }, modules) {
   commit(types.SETCSS, report.css);
   commit(types.SETSUMMARY, report.summary);
   commit(types.SETEVAL, modules);
-  commit(types.SETFILTER, "all outcomes");
+  commit(types.SETALLFILTER, { passed: true, failed: true, warning: true, inapplicable: false, act: modules.act, tecniques: modules.html });
 
 });
 
@@ -30,7 +30,6 @@ export const setCSS = ({ commit }, payload) => {
   commit(types.SETCSS, payload)
 }
 export const setSummary = ({ commit }, payload) => {
-  commit(types.SETFILTER, "all outcomes");
   commit(types.SETSUMMARY, payload)
 }
 export const setEvaluated = ({ commit }, payload) => {
@@ -38,6 +37,9 @@ export const setEvaluated = ({ commit }, payload) => {
 }
 export const setFilter = ({ commit }, payload) => {
   commit(types.SETFILTER, payload)
+}
+export const setAllFilter = ({ commit }, payload) => {
+  commit(types.SETALLFILTER, payload)
 }
 
 export const reset = ({ commit }) => {

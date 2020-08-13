@@ -20,9 +20,15 @@ export default {
 
     state.summary = payload;
   },
-  [types.SETFILTER](state, payload) {
+  [types.SETALLFILTER](state, payload) {
 
     state.filter = payload;
+    console.log(state.filter);
+  },
+  [types.SETFILTER](state, payload) {
+
+    state.filter[payload.key] = value;
+    console.log(state.filter);
   },
   [types.SETCURRENTRULE](state, payload) {
     state.currentRule = payload;

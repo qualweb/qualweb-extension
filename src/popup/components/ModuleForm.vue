@@ -10,11 +10,26 @@
             <legend class="legend">Select the modules to evaluate:</legend>
             <ul class="formContainer">
               <li>
-                <Checkbox  @checkBoxChanged="updateEvaluated" :idValue="actIdValue" :label="actLabel" :bgColor="bgColor" :checkColor="checkColor"></Checkbox>
+                <Checkbox
+                  @checkBoxChanged="updateEvaluated"
+                  :idValue="actIdValue"
+                  :label="actLabel"
+                  :bgColor="bgColor"
+                  :checkColor="checkColor"
+                  :value="actValue"
+                ></Checkbox>
               </li>
               <li>
-                <Checkbox  @checkBoxChanged="updateEvaluated" :idValue="htmlIdValue" :label="htmlLabel"  :bgColor="bgColor" :checkColor="checkColor"></Checkbox>
+                <Checkbox
+                  @checkBoxChanged="updateEvaluated"
+                  :idValue="htmlIdValue"
+                  :label="htmlLabel"
+                  :bgColor="bgColor"
+                  :checkColor="checkColor"
+                  :value="htmlValue"
+                ></Checkbox>
               </li>
+            </ul>
           </fieldset>
         </div>
       </div>
@@ -35,10 +50,12 @@ export default {
     return {
       actIdValue: "act",
       actLabel: "ACT Rules",
+      actValue: false,
       htmlIdValue: "html",
       htmlLabel: "WCAG 2.1 HTML Techniques",
-      bgColor:"white",
-      checkColor:"black"
+      htmlValue: false,
+      bgColor: "white",
+      checkColor: "black"
     };
   },
   computed: {
@@ -54,18 +71,17 @@ export default {
     }
   },
   methods: {
-     ...mapActions(["setEvaluated"]),
+    ...mapActions(["setEvaluated"]),
     async sendFormData(e) {
       e.preventDefault();
       this.$router.push("/loading");
     },
-    async updateEvaluated(idValue,value){
-        await this.setEvaluated({
+    async updateEvaluated(idValue, value) {
+      await this.setEvaluated({
         module: idValue,
-        value:value
+        value: value
       });
     }
-
   },
   components: { Checkbox }
 };
@@ -78,7 +94,6 @@ export default {
 fieldset {
   border-radius: 0.2rem;
   border: 0.01rem solid #888585;
-
 }
 .formComponent {
   height: 100%;

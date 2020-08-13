@@ -4,11 +4,11 @@
 }
 
 
-.focused[data-v-bd40494c]::before {
+.focused[data-v-4f0ff776]::before {
   outline: 1px dotted #212121;
   outline: 5px auto -webkit-focus-ring-color;
 }
-.hidden[data-v-bd40494c] {
+.hidden[data-v-4f0ff776] {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -19,20 +19,20 @@
   outline: 0;
   -webkit-appearance: none;
 }
-*[data-v-bd40494c],
-*[data-v-bd40494c]:before,
-*[data-v-bd40494c]:after {
+*[data-v-4f0ff776],
+*[data-v-4f0ff776]:before,
+*[data-v-4f0ff776]:after {
   box-sizing: border-box;
 }
-.md-checkbox[data-v-bd40494c] {
+.md-checkbox[data-v-4f0ff776] {
   position: relative;
   margin: 1rem 0;
   text-align: left;
 }
-.md-checkbox.md-checkbox-inline[data-v-bd40494c] {
+.md-checkbox.md-checkbox-inline[data-v-4f0ff776] {
   display: inline-block;
 }
-.md-checkbox label[data-v-bd40494c] {
+.md-checkbox label[data-v-4f0ff776] {
   cursor: pointer;
   display: inline;
   line-height: 1.25rem;
@@ -40,17 +40,17 @@
   clear: both;
   padding-left: 1px;
 }
-.md-checkbox label[data-v-bd40494c]:not(:empty) {
+.md-checkbox label[data-v-4f0ff776]:not(:empty) {
   padding-left: 0.75rem;
 }
-.md-checkbox label[data-v-bd40494c]:before,
-.md-checkbox label[data-v-bd40494c]:after {
+.md-checkbox label[data-v-4f0ff776]:before,
+.md-checkbox label[data-v-4f0ff776]:after {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
 }
-.md-checkbox label[data-v-bd40494c]:before {
+.md-checkbox label[data-v-4f0ff776]:before {
   width: 1.25rem;
   height: 1.25rem;
   background:  transparent;
@@ -59,7 +59,7 @@
   cursor: pointer;
   transition: background 0.3s;
 }
-.md-checkbox input[type="checkbox"][data-v-bd40494c] {
+.md-checkbox input[type="checkbox"][data-v-4f0ff776] {
   outline: 0;
   width: 1.25rem;
   margin: 0;
@@ -67,11 +67,11 @@
   float: left;
   font-size: inherit;
 }
-.md-checkbox input[type="checkbox"]:checked + label[data-v-bd40494c]:before {
+.md-checkbox input[type="checkbox"]:checked + label[data-v-4f0ff776]:before {
   background: var(--bg-color);
   border: none;
 }
-.md-checkbox input[type="checkbox"]:checked + label[data-v-bd40494c]:after {
+.md-checkbox input[type="checkbox"]:checked + label[data-v-4f0ff776]:after {
   transform: translate(0.25em, 0.3365384615em) rotate(-45deg);
   width: 0.75rem;
   height: 0.375rem;
@@ -79,57 +79,57 @@
   border-top-style: none;
   border-right-style: none;
 }
-.md-checkbox input[type="checkbox"]:disabled + label[data-v-bd40494c]:before {
+.md-checkbox input[type="checkbox"]:disabled + label[data-v-4f0ff776]:before {
   border-color: rgba(0, 0, 0, 0.26);
 }
-.md-checkbox input[type="checkbox"]:disabled:checked + label[data-v-bd40494c]:before {
+.md-checkbox input[type="checkbox"]:disabled:checked + label[data-v-4f0ff776]:before {
   background: rgba(0, 0, 0, 0.26);
 }
 
 
-[data-v-091170ff]:disabled {
+[data-v-4eed9edb]:disabled {
   opacity: 0.7;
 }
-fieldset[data-v-091170ff] {
+fieldset[data-v-4eed9edb] {
   border-radius: 0.2rem;
   border: 0.01rem solid #888585;
 }
-.formComponent[data-v-091170ff] {
+.formComponent[data-v-4eed9edb] {
   height: 100%;
   overflow: auto;
 }
-.smallContainer[data-v-091170ff] {
+.smallContainer[data-v-4eed9edb] {
   display: grid;
   flex-direction: column;
   background-color: #393939;
   padding: 0.8rem;
   border-radius: 0.2rem;
 }
-.formContainer[data-v-091170ff] {
+.formContainer[data-v-4eed9edb] {
   margin-top: 1.2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   grid-row-gap: 1rem;
 }
-.center[data-v-091170ff] {
+.center[data-v-4eed9edb] {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 22rem;
 }
-.submit[data-v-091170ff] {
+.submit[data-v-4eed9edb] {
   font-size: 18pt;
   margin-top: 2rem;
   background-color: #e15500;
   width: 100%;
   cursor: pointer;
 }
-.formClass[data-v-091170ff] {
+.formClass[data-v-4eed9edb] {
   padding-right: 1rem;
   padding-left: 1rem;
 }
-.button[data-v-091170ff] {
+.button[data-v-4eed9edb] {
   display: block;
   padding: 0.4em 0.8rem;
   border: none;
@@ -140,49 +140,49 @@ fieldset[data-v-091170ff] {
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
 }
-.legend[data-v-091170ff] {
+.legend[data-v-4eed9edb] {
   text-align: center;
   font-size: 1.2rem;
 }
 @media only screen and (max-height: 450px) {
-.bigContainer[data-v-091170ff] {
+.bigContainer[data-v-4eed9edb] {
     margin-top: 1.2rem;
 }
-.formComponent[data-v-091170ff] {
+.formComponent[data-v-4eed9edb] {
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
-.center[data-v-091170ff] {
+.center[data-v-4eed9edb] {
     width: 20rem;
 }
-.imageContainer[data-v-091170ff] {
+.imageContainer[data-v-4eed9edb] {
     display: grid;
     align-content: center;
 }
 }
 @media only screen and (max-height: 320px) {
-.bigContainer[data-v-091170ff] {
+.bigContainer[data-v-4eed9edb] {
     margin-top: 1.2rem;
 }
-.formContainer[data-v-091170ff] {
+.formContainer[data-v-4eed9edb] {
     display: flex;
     justify-content: space-around;
 }
-.imageContainer[data-v-091170ff] {
+.imageContainer[data-v-4eed9edb] {
     display: none;
 }
-.formComponent[data-v-091170ff] {
+.formComponent[data-v-4eed9edb] {
     display: flex;
     flex-direction: column;
     margin-right: 1rem;
     margin-left: 1rem;
 }
-.smallContainer[data-v-091170ff] {
+.smallContainer[data-v-4eed9edb] {
     margin-left: 0rem;
 }
 }
 @media only screen and (max-width: 500px) {
-.formContainer[data-v-091170ff] {
+.formContainer[data-v-4eed9edb] {
     display: flex;
     flex-flow: column;
     margin-left: 1rem;
@@ -190,27 +190,27 @@ fieldset[data-v-091170ff] {
 }
 
 
-p[data-v-21939218] {
+p[data-v-2ea1c166] {
   font-size: 1.3rem;
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   text-align: center;
   margin-top: 0rem;
 }
-.column[data-v-21939218] {
+.column[data-v-2ea1c166] {
   width: 100%;
   padding: 1rem;
   padding-bottom: 0rem;
 }
-.border[data-v-21939218] {
+.border[data-v-2ea1c166] {
   border-right: 0.01em solid white;
 }
-.filter[data-v-21939218] {
+.filter[data-v-2ea1c166] {
   padding-right: 0.2rem;
   padding-left: 0.2rem;
 }
 /* Style the button that is used to open and close the collapsible content */
-.collapsible[data-v-21939218] {
+.collapsible[data-v-2ea1c166] {
   background-color: #383838;
   color: white;
   cursor: pointer;
@@ -231,7 +231,7 @@ p[data-v-21939218] {
 }
 
 /* Style the collapsible content. Note: hidden by default */
-.content[data-v-21939218] {
+.content[data-v-2ea1c166] {
   display: none;
   overflow: hidden;
   margin-bottom: 0.2rem;
@@ -239,10 +239,10 @@ p[data-v-21939218] {
   border-radius: 0.2rem;
   border: 0.01em solid #888585;
 }
-.none[data-v-21939218] {
+.none[data-v-2ea1c166] {
   display: none;
 }
-.visible[data-v-21939218] {
+.visible[data-v-2ea1c166] {
   display: flex;
   flex-direction: row;
 }
