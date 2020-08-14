@@ -24,7 +24,7 @@
           <i class="material-icons-round">chevron_left</i>
         </button>
       </div>
-      <span class="flexElement index">{{index}}</span>
+      <span class="flexElement index">{{index}}/{{size}}</span>
       <div>
         <button
           @click="after()"

@@ -16,6 +16,11 @@ export const setCurrentRule = ({ commit }, payload) => {
   commit(types.SETCURRENTRULE, payload)
 }
 
+export const setCurrentRuleResults = ({ commit }, payload) => {
+  commit(types.SETCURRENTRULE, payload)
+}
+
+
 export const setACT = ({ commit }, payload) => {
   commit(types.SETACT, payload)
 }
@@ -39,6 +44,13 @@ export const setFilter = ({ commit }, payload) => {
 }
 export const setStartingFilter = ({ commit }, modules) => {
   commit(types.SETALLFILTER, { passed: true, failed: true, warning: true, inapplicable: false, act: modules.act, html: modules.html })
+}
+
+export const setResultFilter = ({ commit }, payload) => {
+  commit(types.SETRESULTFILTER, payload)
+}
+export const setStartingResultFilter = ({ commit }, payload) => {
+  commit(types.SETALLRESULTFILTER,payload)
 }
 
 export const reset = ({ commit }) => {

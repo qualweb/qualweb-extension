@@ -21,17 +21,22 @@ export default {
     state.summary = payload;
   },
   [types.SETALLFILTER](state, payload) {
-
     state.filter = payload;
-    console.log(state.filter);
+    console.log(state.filter)
   },
   [types.SETFILTER](state, payload) {
-
     state.filter[payload.key] = payload.value;
-    console.log(state.filter);
+  },
+  [types.SETALLRESULTFILTER](state, payload) {
+    state.resultFilter = payload;
+  },
+  [types.SETRESULTFILTER](state, payload) {
+    state.resultFilter[payload.key] = payload.value;
   },
   [types.SETCURRENTRULE](state, payload) {
     state.currentRule = payload;
+  },[types.SETCURRENTRULERESULTS](state, payload) {
+    state.currentRuleResults = payload;
   },
   [types.RESET](state) {
     state.evaluated = { act: false, bp: false, css: false, html: false };
@@ -41,5 +46,6 @@ export default {
     state.css = {};
     state.summary = {};
     state.filter = {};
+    state.resultFilter = { passed: false, failed: false, warning: false, inapplicable: false };
   }
 }

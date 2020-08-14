@@ -1,73 +1,48 @@
 <template>
   <div class="filter">
-    <button @click="changeState" type="button" class="collapsible">Filters</button>
+    <button @click="changeState" type="button" class="collapsible">Filter Outcome</button>
     <div :class="['content', isOpen ? 'visible' : 'none']">
       <div class="column border">
         <p>Outcome</p>
         <ul class="module">
-          <li>
+          <li :disabled="resultNumber.passed === 0">
             <Checkbox
               :idValue="passedIdValue"
-              :label="passedLabel"
+              :label="passedLabel+resultNumber.passed+' results'"
               :bgColor="passedColor"
               :checkColor="checkColor"
-              @checkBoxChanged="updateFilter"
+              @checkBoxChanged="updateFilterResults"
               :value="filter.passed"
             ></Checkbox>
           </li>
-          <li>
+          <li :disabled="resultNumber.failed === 0">
             <Checkbox
               :idValue="failedIdValue"
-              :label="failedLabel"
+              :label="failedLabel+resultNumber.failed+' results'"
               :bgColor="failedColor"
               :checkColor="checkColor"
-              @checkBoxChanged="updateFilter"
+              @checkBoxChanged="updateFilterResults"
               :value="filter.failed"
             ></Checkbox>
           </li>
-          <li>
+          <li :disabled="resultNumber.warning === 0">
             <Checkbox
               :idValue="warningIdValue"
-              :label="warningLabel"
+              :label="warningLabel+resultNumber.warning+' results'"
               :bgColor="warningColor"
               :checkColor="checkColor"
-              @checkBoxChanged="updateFilter"
+              @checkBoxChanged="updateFilterResults"
               :value="filter.warning"
             ></Checkbox>
           </li>
-          <li>
+          <li :disabled="resultNumber.inapplicable === 0">
             <Checkbox
               :idValue="inapplicableIdValue"
-              :label="inapplicableLabel"
+              :label="inapplicableLabel+resultNumber.inapplicable+' results'"
               :bgColor="bgColor"
               :checkColor="checkColor"
-              @checkBoxChanged="updateFilter"
+              @checkBoxChanged="updateFilterResults"
               :value="filter.inapplicable"
-            ></Checkbox>
-          </li>
-        </ul>
-      </div>
-      <div class="column">
-        <p>Module</p>
-        <ul class="module">
-          <li>
-            <Checkbox
-              :idValue="actIdValue"
-              :label="actLabel"
-              :bgColor="bgColor"
-              :checkColor="checkColor"
-              @checkBoxChanged="updateFilter"
-              :value="filter.act"
-            ></Checkbox>
-          </li>
-          <li>
-            <Checkbox
-              :idValue="tecniquesIdValue"
-              :label="tecniquesLabel"
-              :bgColor="bgColor"
-              :checkColor="checkColor"
-              @checkBoxChanged="updateFilter"
-              :value="filter.html"
             ></Checkbox>
           </li>
         </ul>
@@ -81,42 +56,41 @@ import Checkbox from "./Checkbox.vue";
 import { mapActions, mapGetters } from "vuex";
 
 export default {
-  name: "ColapsibleFilter",
+  name: "ColapsibleResultFilter",
   data() {
     return {
       isOpen: false,
-      actIdValue: "act",
-      actLabel: "ACT Rules",
-      tecniquesIdValue: "html",
-      tecniquesLabel: "WCAG 2.1 Techniques",
-      passedIdValue: "passed",
-      passedLabel: "Passed",
-      failedIdValue: "failed",
-      failedLabel: "Failed",
-      warningIdValue: "warning",
-      warningLabel: "Warning",
-      inapplicableIdValue: "inapplicable",
-      inapplicableLabel: " Inapplicable",
+      passedIdValue: "PASSED",
+      passedLabel: "Passed - ",
+      failedIdValue: "FAILED",
+      failedLabel: "Failed - ",
+      warningIdValue: "WARNING",
+      warningLabel: "Warning - ",
+      inapplicableIdValue: "INAPPLICABLE",
+      inapplicableLabel: " Inapplicable - ",
       passedColor: "#46f73f",
       failedColor: "#ff3535",
       warningColor: "#ffd600",
-      bgColor: "white",
-      checkColor: "black"
+      checkColor: "black",
+      bgColor: "white"
     };
   },
-    computed: mapGetters({ filter: "getFilter" }),
+  computed: mapGetters({
+    filter: "getResultFilter",
+    resultNumber: "getResultNumber"
+  }),
   methods: {
-    ...mapActions(["setFilter"]),
-
+    ...mapActions(["setResultFilter"]),
     changeState() {
       this.isOpen = !this.isOpen;
     },
-    async updateFilter(idValue, value) {
-      console.log("updating filter")
-      await this.setFilter({
-        key: idValue,
+    async updateFilterResults(idValue, value) {
+      console.log({ idValue, value });
+      await this.setResultFilter({
+        key: idValue.toLowerCase(),
         value: value
       });
+      console.log(this.filter);
     }
   },
   components: {
@@ -131,6 +105,10 @@ export default {
 </script>
 
 <style scoped>
+.module {
+  display: flex;
+  flex-direction: column;
+}
 p {
   font-size: 1.3rem;
   font-family: "Oswald", sans-serif;
@@ -143,13 +121,7 @@ p {
   padding: 1rem;
   padding-bottom: 0rem;
 }
-.border {
-  border-right: 0.01em solid white;
-}
-.filter {
-  padding-right: 0.2rem;
-  padding-left: 0.2rem;
-}
+
 /* Style the button that is used to open and close the collapsible content */
 .collapsible {
   background-color: #383838;
@@ -186,5 +158,8 @@ p {
 .visible {
   display: flex;
   flex-direction: row;
+}
+[disabled="disabled"] {
+  opacity: 0.3;
 }
 </style>

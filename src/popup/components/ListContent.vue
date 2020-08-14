@@ -20,7 +20,8 @@
     <p v-if="rule.results.length!==0">
       <span class="strong">Results:</span>
     </p>
-    <ElementNavigation v-if="rule.results.length!==0" :elements="rule.results"></ElementNavigation>
+    <ColapsibleResultFilter></ColapsibleResultFilter>
+    <ElementNavigation v-if="rule.results.length!==0"></ElementNavigation>
   </div>
 </template>
 
@@ -28,11 +29,13 @@
 import { mapGetters } from "vuex";
 import RuleResult from "./RuleResult.vue";
 import ElementNavigation from "./ElementNavigation.vue";
+import ColapsibleResultFilter from "./ColapsibleResultFilter.vue";
 export default {
   name: "ListContent",
   components: {
     RuleResult,
-    ElementNavigation
+    ElementNavigation,
+    ColapsibleResultFilter
   },
   computed: mapGetters({ rule: "getCurrentRule" }),
 };

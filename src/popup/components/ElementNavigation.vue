@@ -1,5 +1,5 @@
 <template>
-  <div class="menu">
+  <div class="menu" v-if="elements.length>0">
     <NavigationBar
       v-on:offHighlight="offHighlightElement"
       v-on:highlight="highlightElement"
@@ -14,11 +14,13 @@
 <script>
 import NavigationBar from "./NavigationBar.vue";
 import RuleResult from "./RuleResult.vue";
+import { mapGetters } from "vuex";
+
 export default {
   name: "ElementNavigation",
-  props: ["elements"],
   data() {
     return {
+      elements: null,
       element: null,
       lastHighlightElement: null
     };
@@ -32,7 +34,9 @@ export default {
       );
     }
   },
+  computed: mapGetters({ filter: "getResultFilter" }),
   methods: {
+    ...mapGetters(["getCurrentRuleResults"]),
     updateResult(index) {
       this.element = this.elements[index - 1];
     },
@@ -60,12 +64,19 @@ export default {
     RuleResult
   },
   watch: {
-    elements: function(newResults, oldQuestion) {
-      this.element = newResults[0];
+    filter: function(newResults, oldQuestion) {
+      this.elements = this.getCurrentRuleResults();
+      console.log("updated elements")
+      if (this.elements.length > 0) {
+        this.element = this.elements[0];
+      }
     }
   },
   created() {
-    this.element = this.elements[0];
+    this.elements = this.getCurrentRuleResults();
+    if (this.elements.length > 0) {
+      this.element = this.elements[0];
+    }
   }
 };
 </script>

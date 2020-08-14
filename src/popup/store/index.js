@@ -9,20 +9,23 @@ Vue.use(Vuex)
 
 export const defaultState = {
   summary: {},
-  evaluated: {act:false,bp:false,css:false,html:false},
+  evaluated: { act: false, bp: false, css: false, html: false },
   filter: {},
   act: {},
-  currentRule: {}
+  currentRule: {},
+  resultFilter: { passed: false, failed: false, warning: false, inapplicable: false }
 }
 
 
 export default new Vuex.Store({
   state: {
     summary: {},
-    evaluated:  {act:false,bp:false,css:false,html:false},
+    evaluated: { act: false, bp: false, css: false, html: false },
     filter: {},
     act: {},
-    currentRule: {}
+    currentRule: {},
+    resultFilter: { passed: false, failed: false, warning: false, inapplicable: false }
+
 
   },
   getters,

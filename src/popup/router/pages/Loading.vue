@@ -20,9 +20,9 @@ export default {
       "setCSS",
       "setSummary",
       "setCurrentRule",
-      "setStartingFilter"
+      "setStartingFilter",
     ]),
-    ...mapGetters(["getEvaluated", "getFirstRule"])
+    ...mapGetters(["getEvaluated", "getFirstRule","getResultFilter"])
   },
   data() {
     return {
@@ -32,6 +32,7 @@ export default {
   async mounted() {
     let modules = this.getEvaluated();
     console.log(modules);
+    console.log(this.getResultFilter())
     let actResult, bpResult, htmlResult, cssResult, summary;
     await starEvaluation();
     if (modules.act) {
