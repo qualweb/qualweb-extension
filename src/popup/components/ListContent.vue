@@ -3,7 +3,7 @@
     <h1 class="center">{{rule.name}}</h1>
     <p v-if="rule.mapping">
       <span class="strong">Rule ID:</span>
-      {{rule.mapping}}
+      <a target="_blank" :href="rule.metadata.url">{{rule.mapping}}</a>
     </p>
     <p v-if="rule.url">
       <span class="strong">Url:</span>
@@ -42,6 +42,9 @@ export default {
 </script>
 
 <style scoped>
+a{
+  color: white;
+}
 .center {
   text-align: center;
 }

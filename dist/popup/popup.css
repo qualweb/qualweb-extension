@@ -624,10 +624,13 @@ p[data-v-22ff303f] {
 }
 
 
-.center[data-v-26cd351a] {
+a[data-v-69fb56bb]{
+  color: white;
+}
+.center[data-v-69fb56bb] {
   text-align: center;
 }
-.text[data-v-26cd351a] {
+.text[data-v-69fb56bb] {
   padding: 1rem;
 }
 
