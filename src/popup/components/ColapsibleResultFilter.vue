@@ -102,16 +102,12 @@ export default {
 
 <style scoped>
 .outcome {
-  margin-top: 1.2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
-  grid-row-gap: 1rem;
 }
-.column {
-  width: 100%;
-  padding: 1rem;
-  padding-bottom: 0rem;
+.filter {
+  padding: 0rem 1rem;
 }
 
 </style>

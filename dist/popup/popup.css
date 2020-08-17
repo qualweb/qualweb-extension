@@ -584,17 +584,13 @@ button[data-v-7ae6deec]:disabled {
 }
 
 
-.outcome[data-v-693ef302] {
-  margin-top: 1.2rem;
+.outcome[data-v-41218e27] {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
-  grid-row-gap: 1rem;
 }
-.column[data-v-693ef302] {
-  width: 100%;
-  padding: 1rem;
-  padding-bottom: 0rem;
+.filter[data-v-41218e27] {
+  padding: 0rem 1rem;
 }
 
 
