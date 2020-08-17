@@ -85,6 +85,7 @@ export const getFirstRule = (state) => {
 }
 export const getResultFilter = (state) => state.resultFilter
 export const getFilter = (state) => state.filter
+export const getHighlightActive = (state) => state.highlightActive
 export const getSummary = (state) => state.summary
 export const getAllData = (state) => {
     return {

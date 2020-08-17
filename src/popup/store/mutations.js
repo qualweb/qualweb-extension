@@ -37,6 +37,9 @@ export default {
     state.currentRule = payload;
   },[types.SETCURRENTRULERESULTS](state, payload) {
     state.currentRuleResults = payload;
+  }, [types.SETHIGHLIGHTACTIVE](state, payload) {
+
+    state.highlightActive = payload;
   },
   [types.RESET](state) {
     state.evaluated = { act: false, bp: false, css: false, html: false };
@@ -46,6 +49,7 @@ export default {
     state.css = {};
     state.summary = {};
     state.filter = {};
+    state.highlightActive = false;
     state.resultFilter = { passed: false, failed: false, warning: false, inapplicable: false };
   }
 }

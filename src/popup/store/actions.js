@@ -19,7 +19,9 @@ export const setCurrentRule = ({ commit }, payload) => {
 export const setCurrentRuleResults = ({ commit }, payload) => {
   commit(types.SETCURRENTRULE, payload)
 }
-
+export const setHighlightActive = ({ commit }, payload) => {
+  commit(types.SETHIGHLIGHTACTIVE, payload)
+}
 
 export const setACT = ({ commit }, payload) => {
   commit(types.SETACT, payload)

@@ -4,6 +4,7 @@
       <div class="buttons">
         <RunAgain class="runAgain"></RunAgain>
         <Export class="export"></Export>
+        <HighlightAll class="export"></HighlightAll>
       </div>
       <div class="text">
         <h1 class="title">{{summary.title}}</h1>
@@ -39,6 +40,7 @@
 import { mapGetters } from "vuex";
 import RunAgain from "./RunAgain.vue";
 import Export from "./Export.vue";
+import HighlightAll from "./HighlightAll.vue";
 export default {
   name: "Summary",
   computed: mapGetters({ summary: "getSummary" }),
@@ -49,7 +51,8 @@ export default {
   },
   components: {
     RunAgain,
-    Export
+    Export,
+    HighlightAll
   }
 };
 </script>

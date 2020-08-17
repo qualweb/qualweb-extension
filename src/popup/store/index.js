@@ -13,6 +13,7 @@ export const defaultState = {
   filter: {},
   act: {},
   currentRule: {},
+  highlightActive:false,
   resultFilter: { passed: false, failed: false, warning: false, inapplicable: false }
 }
 
@@ -24,6 +25,7 @@ export default new Vuex.Store({
     filter: {},
     act: {},
     currentRule: {},
+    highlightActive:false,
     resultFilter: { passed: false, failed: false, warning: false, inapplicable: false }
 
 

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <button class="highlight btn" v-on:click="highligthElement">
+    <button :disabled="highlightActive" class="highlight btn" v-on:click="highligthElement">
       <span v-if="highligthElementAvailable" class="flexElement">Highlight Element</span>
       <span v-else class="flexElement">Stop Highlight</span>
       <i class="material-icons-round flexElement">wb_iridescent</i>
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "NavigationBar",
   props: ["size"],
@@ -57,11 +58,22 @@ export default {
       highligthElementAvailable: true
     };
   },
-
+  computed: mapGetters({
+    highlightActive: "getHighlightActive"
+  }),
   watch: {
     size: function(newResults, oldQuestion) {
       this.index = 1;
       this.highligthElementAvailable = true;
+      if (this.highlightActive) {
+       this.highligthElement();
+      }
+    },
+    highlightActive: function(newResults, oldQuestion) {
+      if (this.highlightActive && this.size > 0) {
+        this.highligthElementAvailable = true;
+        this.highligthElement();
+      }
     }
   },
   methods: {
@@ -71,12 +83,18 @@ export default {
         this.index--;
         this.$emit("change", this.index);
       }
+      if (this.highlightActive) {
+         this.highligthElement();
+      }
     },
     after() {
       if (this.index < this.size) {
         this.disableHighlight();
         this.index++;
         this.$emit("change", this.index);
+      }
+      if (this.highlightActive) {
+         this.highligthElement();
       }
     },
     last() {
@@ -85,11 +103,17 @@ export default {
         this.index = this.size;
         this.$emit("change", this.index);
       }
+      if (this.highlightActive) {
+         this.highligthElement();
+      }
     },
     first() {
       if (this.index !== 1) {
         this.clean();
         this.$emit("change", this.index);
+      }
+      if (this.highlightActive) {
+        this.highligthElement();
       }
     },
     highligthElement() {
@@ -120,6 +144,9 @@ button:disabled {
   color: #383838;
   cursor: auto;
 }
+.btn:disabled {
+  opacity: 0.5;
+}
 .index {
   padding: 0.1em 0.6rem;
 }
@@ -128,7 +155,7 @@ button:disabled {
   border: none;
   color: white;
   cursor: pointer;
-  border-radius:0.1rem;
+  border-radius: 0.1rem;
 }
 .btn {
   background-color: black;
