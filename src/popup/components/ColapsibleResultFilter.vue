@@ -1,11 +1,8 @@
 <template>
   <div class="filter">
-    <button @click="changeState" type="button" class="collapsible">Filter Outcome</button>
-    <div :class="['content', isOpen ? 'visible' : 'none']">
-      <div class="column border">
-        <p>Outcome</p>
-        <ul class="module">
-          <li :disabled="resultNumber.passed === 0">
+    <div class="content">
+        <ul class="outcome">
+          <li>
             <Checkbox
               :idValue="passedIdValue"
               :label="passedLabel+resultNumber.passed+' results'"
@@ -15,7 +12,7 @@
               :value="filter.passed"
             ></Checkbox>
           </li>
-          <li :disabled="resultNumber.failed === 0">
+          <li>
             <Checkbox
               :idValue="failedIdValue"
               :label="failedLabel+resultNumber.failed+' results'"
@@ -25,7 +22,7 @@
               :value="filter.failed"
             ></Checkbox>
           </li>
-          <li :disabled="resultNumber.warning === 0">
+          <li>
             <Checkbox
               :idValue="warningIdValue"
               :label="warningLabel+resultNumber.warning+' results'"
@@ -35,7 +32,7 @@
               :value="filter.warning"
             ></Checkbox>
           </li>
-          <li :disabled="resultNumber.inapplicable === 0">
+          <li>
             <Checkbox
               :idValue="inapplicableIdValue"
               :label="inapplicableLabel+resultNumber.inapplicable+' results'"
@@ -48,7 +45,6 @@
         </ul>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -105,16 +101,12 @@ export default {
 </script>
 
 <style scoped>
-.module {
-  display: flex;
-  flex-direction: column;
-}
-p {
-  font-size: 1.3rem;
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 0rem;
+.outcome {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  grid-row-gap: 1rem;
 }
 .column {
   width: 100%;
@@ -122,44 +114,4 @@ p {
   padding-bottom: 0rem;
 }
 
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-  background-color: #383838;
-  color: white;
-  cursor: pointer;
-  padding: 0.6rem 1rem;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 1.3rem;
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  border: 0.01em solid #888585;
-  border-radius: 0.2rem;
-  margin-bottom: 0.1rem;
-  margin: 0.2rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Style the collapsible content. Note: hidden by default */
-.content {
-  display: none;
-  overflow: hidden;
-  margin-bottom: 0.2rem;
-  background-color: #383838;
-  border-radius: 0.2rem;
-  border: 0.01em solid #888585;
-}
-.none {
-  display: none;
-}
-.visible {
-  display: flex;
-  flex-direction: row;
-}
-[disabled="disabled"] {
-  opacity: 0.3;
-}
 </style>

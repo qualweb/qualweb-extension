@@ -17,10 +17,13 @@
       <span class="strong">Outcome:</span>
       {{rule.metadata.outcome}}
     </p>
+     <p v-if="rule.results.length!==0">
+      <span class="strong">Filter:</span>
+    </p>
+     <ColapsibleResultFilter></ColapsibleResultFilter>
     <p v-if="rule.results.length!==0">
       <span class="strong">Results:</span>
     </p>
-    <ColapsibleResultFilter></ColapsibleResultFilter>
     <ElementNavigation v-if="rule.results.length!==0"></ElementNavigation>
   </div>
 </template>

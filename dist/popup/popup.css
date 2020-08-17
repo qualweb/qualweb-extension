@@ -523,24 +523,24 @@ pre[class*="language-"] {
 
 
 
-button[data-v-283d2c85]:disabled {
+button[data-v-7ae6deec]:disabled {
   color: #383838;
   cursor: auto;
 }
-.btn[data-v-283d2c85]:disabled {
+.btn[data-v-7ae6deec]:disabled {
   opacity: 0.5;
 }
-.index[data-v-283d2c85] {
+.index[data-v-7ae6deec] {
   padding: 0.1em 0.6rem;
 }
-.smallBtn[data-v-283d2c85] {
+.smallBtn[data-v-7ae6deec] {
   background-color: black;
   border: none;
   color: white;
   cursor: pointer;
   border-radius: 0.1rem;
 }
-.btn[data-v-283d2c85] {
+.btn[data-v-7ae6deec] {
   background-color: black;
   text-align: left;
   border: none;
@@ -549,29 +549,29 @@ button[data-v-283d2c85]:disabled {
   border-radius: 0.1rem;
   padding: 0.1em 0.6rem;
 }
-.container[data-v-283d2c85] {
+.container[data-v-7ae6deec] {
   display: flex;
   justify-content: space-between;
   background-color: black;
   padding: 0.2rem;
 }
-.flexElement[data-v-283d2c85] {
+.flexElement[data-v-7ae6deec] {
   color: white;
 }
-.highlight[data-v-283d2c85] {
+.highlight[data-v-7ae6deec] {
   vertical-align: middle;
 }
-.flexElement[data-v-283d2c85] {
+.flexElement[data-v-7ae6deec] {
   font-size: 1.3rem;
   display: inline-flex;
   vertical-align: middle;
 }
-.controller[data-v-283d2c85] {
+.controller[data-v-7ae6deec] {
   display: flex;
   justify-content: space-between;
 }
 @media only screen and (max-width: 400px) {
-.container[data-v-283d2c85] {
+.container[data-v-7ae6deec] {
     display: grid;
     justify-content: center;
 }
@@ -584,72 +584,28 @@ button[data-v-283d2c85]:disabled {
 }
 
 
-.module[data-v-22ff303f] {
-  display: flex;
-  flex-direction: column;
+.outcome[data-v-693ef302] {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  grid-row-gap: 1rem;
 }
-p[data-v-22ff303f] {
-  font-size: 1.3rem;
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 0rem;
-}
-.column[data-v-22ff303f] {
+.column[data-v-693ef302] {
   width: 100%;
   padding: 1rem;
   padding-bottom: 0rem;
 }
 
-/* Style the button that is used to open and close the collapsible content */
-.collapsible[data-v-22ff303f] {
-  background-color: #383838;
-  color: white;
-  cursor: pointer;
-  padding: 0.6rem 1rem;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 1.3rem;
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  border: 0.01em solid #888585;
-  border-radius: 0.2rem;
-  margin-bottom: 0.1rem;
-  margin: 0.2rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Style the collapsible content. Note: hidden by default */
-.content[data-v-22ff303f] {
-  display: none;
-  overflow: hidden;
-  margin-bottom: 0.2rem;
-  background-color: #383838;
-  border-radius: 0.2rem;
-  border: 0.01em solid #888585;
-}
-.none[data-v-22ff303f] {
-  display: none;
-}
-.visible[data-v-22ff303f] {
-  display: flex;
-  flex-direction: row;
-}
-[disabled="disabled"][data-v-22ff303f] {
-  opacity: 0.3;
-}
 
 
-a[data-v-69fb56bb]{
+a[data-v-0e95be46]{
   color: white;
 }
-.center[data-v-69fb56bb] {
+.center[data-v-0e95be46] {
   text-align: center;
 }
-.text[data-v-69fb56bb] {
+.text[data-v-0e95be46] {
   padding: 1rem;
 }
 

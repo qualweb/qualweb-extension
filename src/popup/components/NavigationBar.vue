@@ -73,6 +73,8 @@ export default {
       if (this.highlightActive && this.size > 0) {
         this.highligthElementAvailable = true;
         this.highligthElement();
+      }else{
+        this.disableHighlight();
       }
     }
   },
