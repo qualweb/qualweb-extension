@@ -52,6 +52,6 @@ a{
   text-align: center;
 }
 .text {
-  padding: 1rem;
+  padding: 0rem 1rem;
 }
 </style>
