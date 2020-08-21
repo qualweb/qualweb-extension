@@ -21,10 +21,10 @@
       <span class="strong">Filter:</span>
     </p>
      <ColapsibleResultFilter></ColapsibleResultFilter>
-    <p v-if="rule.results.length!==0">
+    <p v-if="results.length!==0">
       <span class="strong">Results:</span>
     </p>
-    <ElementNavigation v-if="rule.results.length!==0"></ElementNavigation>
+    <ElementNavigation v-if="results.length!==0"></ElementNavigation>
   </div>
 </template>
 
@@ -40,7 +40,7 @@ export default {
     ElementNavigation,
     ColapsibleResultFilter
   },
-  computed: mapGetters({ rule: "getCurrentRule" }),
+  computed: mapGetters({ rule: "getCurrentRule",results:"getCurrentRuleResults" }),
 };
 </script>
 
@@ -50,8 +50,10 @@ a{
 }
 .center {
   text-align: center;
+  margin-block-start: 0em
 }
 .text {
-  padding: 0rem 1rem;
+  padding: 1rem 1rem;
+  
 }
 </style>
