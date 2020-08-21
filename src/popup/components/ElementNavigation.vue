@@ -37,10 +37,10 @@ export default {
   methods: {
     ...mapGetters(["getCurrentRuleResults"]),
     updateResult(index) {
-      this.element = this.elements[index - 1];
+      this.element = this.results[index - 1];
     },
     highlightElement(index) {
-      let element = this.elements[index - 1];
+      let element = this.results[index - 1];
       this.lastHighlightElement = element;
       let elements = element.elements;
       chrome.devtools.inspectedWindow.eval(
@@ -50,7 +50,7 @@ export default {
     },
     offHighlightElement(index) {
       this.lastHighlightElement = null;
-      let element = this.elements[index - 1];
+      let element = this.results[index - 1];
       let elements = element.elements;
       chrome.devtools.inspectedWindow.eval(
         "turnOffhighlightElement(" + JSON.stringify(elements) + ")",
