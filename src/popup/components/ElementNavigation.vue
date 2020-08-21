@@ -1,10 +1,10 @@
 <template>
-  <div class="menu" v-if="elements.length>0">
+  <div class="menu" v-if="results.length>0">
     <NavigationBar
       v-on:offHighlight="offHighlightElement"
       v-on:highlight="highlightElement"
       v-on:change="updateResult"
-      :size="elements.length"
+      :size="results.length"
       ref="navBar"
     ></NavigationBar>
     <RuleResult :result="element"></RuleResult>
@@ -20,7 +20,6 @@ export default {
   name: "ElementNavigation",
   data() {
     return {
-      elements: null,
       element: null,
       lastHighlightElement: null
     };
@@ -34,7 +33,7 @@ export default {
       );
     }
   },
-  computed: mapGetters({ filter: "getResultFilter" }),
+  computed: mapGetters({ results:"getCurrentRuleResults" }),
   methods: {
     ...mapGetters(["getCurrentRuleResults"]),
     updateResult(index) {
@@ -64,18 +63,15 @@ export default {
     RuleResult
   },
   watch: {
-    filter: function(newResults, oldQuestion) {
-      this.elements = this.getCurrentRuleResults();
-      console.log("updated elements")
-      if (this.elements.length > 0) {
-        this.element = this.elements[0];
+    results: function(newResults, oldQuestion) {
+      if (this.results.length > 0) {
+        this.element = this.results[0];
       }
     }
   },
   created() {
-    this.elements = this.getCurrentRuleResults();
-    if (this.elements.length > 0) {
-      this.element = this.elements[0];
+    if (this.results.length > 0) {
+      this.element = this.results[0];
     }
   }
 };
