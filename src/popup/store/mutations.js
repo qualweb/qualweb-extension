@@ -22,10 +22,20 @@ export default {
   },
   [types.SETALLFILTER](state, payload) {
     state.filter = payload;
-    console.log(state.filter)
   },
   [types.SETFILTER](state, payload) {
     state.filter[payload.key] = payload.value;
+    let currentRule = state.currentRule;
+    if (!!currentRule) {
+      let currentRuleData = state[currentRule.module][currentRule.code];
+      let filter = state["filter"];
+      let outcome = currentRuleData["metadata"]["outcome"];
+      let module = currentRule.module;
+      if (!(filter[outcome] && filter[module])) {
+        state.currentRule = null;
+      }
+    }
+
   },
   [types.SETALLRESULTFILTER](state, payload) {
     state.resultFilter = payload;
@@ -35,7 +45,7 @@ export default {
   },
   [types.SETCURRENTRULE](state, payload) {
     state.currentRule = payload;
-  },[types.SETCURRENTRULERESULTS](state, payload) {
+  }, [types.SETCURRENTRULERESULTS](state, payload) {
     state.currentRuleResults = payload;
   }, [types.SETHIGHLIGHTACTIVE](state, payload) {
 

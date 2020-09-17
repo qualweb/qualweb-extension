@@ -2,16 +2,12 @@ export const getAllRulesFromModule = state => module => state[module]
 export const getRuleWithCode = (state) => (code, module) => state[module][code]
 export const getEvaluated = (state) => state["evaluated"]
 export const getCurrentRule = (state) => {
-    let resultNumber = getResultNumber(state);
-    state.resultFilter = { passed: resultNumber.passed > 0, failed: resultNumber.failed > 0, warning: resultNumber.warning > 0, inapplicable: resultNumber.inapplicable > 0 }
     let currentRule = state.currentRule;
-    let currentRuleData = state[currentRule.module][currentRule.code];
-    let filter = state["filter"];
-    let outcome = currentRuleData ["metadata"]["outcome"];
-    let module = currentRule.module;
-    if(filter[outcome] && filter[module]){
-        return currentRuleData;
-    }else{
+    if (!!currentRule) {
+        let resultNumber = getResultNumber(state);
+        state.resultFilter = { passed: resultNumber.passed > 0, failed: resultNumber.failed > 0, warning: resultNumber.warning > 0, inapplicable: resultNumber.inapplicable > 0 }
+        return state[currentRule.module][currentRule.code];
+    } else {
         return null;
     }
 
@@ -27,8 +23,6 @@ export const getCurrentRuleResults = (state) => {
             newResults.push(result);
         }
     }
-    console.log(newResults)
-    console.log("newResults")
     return newResults;
 }
 
