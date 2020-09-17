@@ -3,7 +3,7 @@ export const getRuleWithCode = (state) => (code, module) => state[module][code]
 export const getEvaluated = (state) => state["evaluated"]
 export const getCurrentRule = (state) => {
     let resultNumber = getResultNumber(state);
-    console.log("getCurrentRule");
+    console.log(state);
     state.resultFilter = { passed: resultNumber.passed > 0, failed: resultNumber.failed > 0, warning: resultNumber.warning > 0, inapplicable: resultNumber.inapplicable > 0 }
     let currentRule = state.currentRule;
     return state[currentRule.module][currentRule.code];

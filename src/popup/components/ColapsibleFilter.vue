@@ -1,6 +1,10 @@
 <template>
   <div class="filter">
-    <button @click="changeState" type="button" class="collapsible">Filters</button>
+    <button @click="changeState" type="button" class="collapsible">
+      Filters
+      <i v-if="isOpen" class="material-icons dropdownIcon">arrow_drop_up</i>
+      <i v-else class="material-icons dropdownIcon">arrow_drop_down</i>
+    </button>
     <div :class="['content', isOpen ? 'visible' : 'none']">
       <div class="column border">
         <p>Outcome</p>
@@ -104,7 +108,7 @@ export default {
       checkColor: "black"
     };
   },
-    computed: mapGetters({ filter: "getFilter" }),
+  computed: mapGetters({ filter: "getFilter" }),
   methods: {
     ...mapActions(["setFilter"]),
 
@@ -112,7 +116,7 @@ export default {
       this.isOpen = !this.isOpen;
     },
     async updateFilter(idValue, value) {
-      console.log("updating filter")
+      console.log("updating filter");
       await this.setFilter({
         key: idValue,
         value: value
@@ -131,6 +135,9 @@ export default {
 </script>
 
 <style scoped>
+.dropdownIcon {
+  color: white;
+}
 p {
   font-size: 1.3rem;
   font-family: "Oswald", sans-serif;
@@ -169,6 +176,8 @@ p {
   margin: 0.2rem;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Style the collapsible content. Note: hidden by default */
@@ -186,5 +195,15 @@ p {
 .visible {
   display: flex;
   flex-direction: row;
+}
+
+.collapsiblePlus:after {
+  content: "\02795"; /* Unicode character for "plus" sign (+) */
+  float: right;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+  float: right;
 }
 </style>
