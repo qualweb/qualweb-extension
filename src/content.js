@@ -67,6 +67,7 @@ function highlightElement(elements) {
     for (let elementResult of elements) {
         let selector = elementResult.pointer;
         let element = document.querySelector(selector);
+        element.scrollIntoView();
         let style = {border:element.style.border,outline: element.style.outline, borderRadius:element.style.borderRadius}
         selectorToStyle[selector] = style;
         element.style.border = "1px dashed white";
