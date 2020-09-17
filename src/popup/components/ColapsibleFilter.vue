@@ -178,6 +178,7 @@ p {
   margin-right: auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* Style the collapsible content. Note: hidden by default */

@@ -190,30 +190,30 @@ fieldset[data-v-4eed9edb] {
 }
 
 
-.dropdownIcon[data-v-b752da90] {
+.dropdownIcon[data-v-4b893ce0] {
   color: white;
 }
-p[data-v-b752da90] {
+p[data-v-4b893ce0] {
   font-size: 1.3rem;
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   text-align: center;
   margin-top: 0rem;
 }
-.column[data-v-b752da90] {
+.column[data-v-4b893ce0] {
   width: 100%;
   padding: 1rem;
   padding-bottom: 0rem;
 }
-.border[data-v-b752da90] {
+.border[data-v-4b893ce0] {
   border-right: 0.01em solid white;
 }
-.filter[data-v-b752da90] {
+.filter[data-v-4b893ce0] {
   padding-right: 0.2rem;
   padding-left: 0.2rem;
 }
 /* Style the button that is used to open and close the collapsible content */
-.collapsible[data-v-b752da90] {
+.collapsible[data-v-4b893ce0] {
   background-color: #383838;
   color: white;
   cursor: pointer;
@@ -233,10 +233,11 @@ p[data-v-b752da90] {
   margin-right: auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* Style the collapsible content. Note: hidden by default */
-.content[data-v-b752da90] {
+.content[data-v-4b893ce0] {
   display: none;
   overflow: hidden;
   margin-bottom: 0.2rem;
@@ -244,18 +245,18 @@ p[data-v-b752da90] {
   border-radius: 0.2rem;
   border: 0.01em solid #888585;
 }
-.none[data-v-b752da90] {
+.none[data-v-4b893ce0] {
   display: none;
 }
-.visible[data-v-b752da90] {
+.visible[data-v-4b893ce0] {
   display: flex;
   flex-direction: row;
 }
-.collapsiblePlus[data-v-b752da90]:after {
+.collapsiblePlus[data-v-4b893ce0]:after {
   content: "\02795"; /* Unicode character for "plus" sign (+) */
   float: right;
 }
-.active[data-v-b752da90]:after {
+.active[data-v-4b893ce0]:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
   float: right;
 }
@@ -608,14 +609,14 @@ button[data-v-7ae6deec]:disabled {
 
 
 
-a[data-v-20a95dc8]{
+a[data-v-2736d829]{
   color: white;
 }
-.center[data-v-20a95dc8] {
+.center[data-v-2736d829] {
   text-align: center;
   margin-block-start: 0em
 }
-.text[data-v-20a95dc8] {
+.text[data-v-2736d829] {
   padding: 1rem 1rem;
 }
 

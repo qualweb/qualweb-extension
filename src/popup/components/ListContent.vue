@@ -1,5 +1,5 @@
 <template>
-  <div class="text" tabindex="-1">
+  <div v-if="rule" class="text" tabindex="-1">
     <h1 class="center">{{rule.name}}</h1>
     <p v-if="rule.mapping">
       <span class="strong">Rule ID:</span>
