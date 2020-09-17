@@ -32,8 +32,9 @@ export default {
   },
   methods: {
     focusListContent() {
-      console.log("trying to focus");
-      this.$refs.content.$el.focus();
+     try{
+      this.$refs.content.$el.focus();}
+      catch(e){}
     }
   }
 };
