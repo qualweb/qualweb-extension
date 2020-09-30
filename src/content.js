@@ -19,37 +19,17 @@ function evaluateACT() {
     return result;
 }
 
-function evaluateHTML() {
+function evaluateWCAG() {
     let html, htmlResult, result;
-    html = new HTMLTechniques.HTMLTechniques();
+    html = new WCAGTechniques.WCAGTechniques();
     let start = Date.now();
     console.log("Starting evaluation" + start);
     htmlResult = html.execute(currentPage, false, {});
-    console.log("Ending evaluation html" + Math.floor((start - Date.now()) / 1000));
+    console.log("Ending evaluation WCAG" + Math.floor((start - Date.now()) / 1000));
     console.log(htmlResult);
     addValuesToSummary(summary, htmlResult);
     result = htmlResult.assertions;
     return result;
-}
-
-function evaluateBP() {
-    let bp, bpResult, result;
-    bp = new BestPractices.BestPractices();
-    let start = Date.now();
-    console.log("Starting evaluation" + start);
-    bpResult = bp.execute(currentPage)
-    console.log("Ending evaluation bp" + Math.floor((start - Date.now()) / 1000));
-    addValuesToSummary(summary, bpResult);
-    result = bpResult.assertions;
-    return result;
-}
-
-function evaluateCSS() {
-    const cssTechniques = new CSSTechniques.CSSTechniques();
-    let report = cssTechniques.execute(currentPage);
-    addValuesToSummary(summary, report);
-    report = report.assertions;
-    return report;
 }
 
 function endingEvaluation() {

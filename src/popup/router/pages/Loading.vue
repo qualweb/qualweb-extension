@@ -43,18 +43,8 @@ export default {
     }
     if (modules.html) {
       this.state = "Evaluating HTML module";
-      htmlResult = await evaluateHTML();
+      htmlResult = await evaluateWCAG();
       this.setHTML(htmlResult);
-    }
-    if (modules.bp) {
-      this.state = "Evaluating BP module";
-      bpResult = await evaluateBP();
-      this.setBP(bpResult);
-    }
-    if (modules.css) {
-      this.state = "Evaluating CSS module";
-      cssResult = await evaluateCSS();
-      this.setCSS(cssResult);
     }
     this.state = "Ending evaluation";
     summary = await endingEvaluation();

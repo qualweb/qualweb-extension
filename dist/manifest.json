@@ -29,10 +29,8 @@
       "js": [
         "content.js",
         "act.js",
-        "bp.js",
-        "html.js",
-        "qwPage.js",
-        "css.js"
+        "wcag.js",
+        "qwPage.js"
       ]
     }
   ],

@@ -52,7 +52,7 @@ export default {
       actLabel: "ACT Rules",
       actValue: false,
       htmlIdValue: "html",
-      htmlLabel: "WCAG 2.1 HTML Techniques",
+      htmlLabel: "WCAG 2.1 Techniques",
       htmlValue: false,
       bgColor: "white",
       checkColor: "black"

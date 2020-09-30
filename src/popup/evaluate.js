@@ -24,36 +24,10 @@ async function evaluateACT() {
     });
 }
 
-async function evaluateHTML() {
+async function evaluateWCAG() {
     return new Promise((resolve, reject) => {
         chrome.devtools.inspectedWindow.eval(
-            `evaluateHTML()`,
-            { useContentScriptContext: true }
-            , (response, exception) => {
-                console.log(response);
-                console.log(exception);
-                resolve(response);
-            })
-    });
-}
-
-async function evaluateBP() {
-    return new Promise((resolve, reject) => {
-        chrome.devtools.inspectedWindow.eval(
-            `evaluateBP()`,
-            { useContentScriptContext: true }
-            , (response, exception) => {
-                console.log(response);
-                console.log(exception);
-                resolve(response);
-            })
-    });
-}
-
-async function evaluateCSS() {
-    return new Promise((resolve, reject) => {
-        chrome.devtools.inspectedWindow.eval(
-            'evaluateCSS()',
+            `evaluateWCAG()`,
             { useContentScriptContext: true }
             , (response, exception) => {
                 console.log(response);
