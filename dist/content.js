@@ -33,6 +33,7 @@ function evaluateWCAG() {
 }
 
 function endingEvaluation() {
+    currentPage.cleanAllElements();
     return summary;
 }
 function addValuesToSummary(summary, report) {
