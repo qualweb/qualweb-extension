@@ -42,7 +42,7 @@ export default {
       this.setACT(actResult);
     }
     if (modules.html) {
-      this.state = "Evaluating HTML module";
+      this.state = "Evaluating WCAG module";
       htmlResult = await evaluateWCAG();
       this.setHTML(htmlResult);
     }
