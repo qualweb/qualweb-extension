@@ -82,7 +82,6 @@ const config = {
       { from: 'act.js', to: 'act.js' },
       { from: 'wcag.js', to: 'wcag.js' },
       { from: 'popup/evaluate.js', to: 'popup/evaluate.js' },
-      { from: 'css.js', to: 'css.js' },
       { from: 'qwPage.js', to: 'qwPage.js' },
       { from: 'icons', to: 'icons', ignore: ['icon.xcf'] },
       { from: 'popup/popup.html', to: 'popup/popup.html', transform: transformHtml },
