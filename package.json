@@ -1,7 +1,7 @@
 {
   "name": "qualweb-extension",
-  "version": "2.0.0",
-  "description": "Accessiblity evalutaion using QualWeb",
+  "version": "1.0.0",
+  "description": "Accessibility evaluation using QualWeb",
   "author": "aestriga <aestriga@lasige.di.fc.ul.pt>",
   "engines": {
     "node": ">=10"
@@ -26,7 +26,7 @@
     "vuex": "^3.0.1",
     "@qualweb/qw-page": "0.1.30",
     "@qualweb/act-rules": "^0.4.35",
-    "@qualweb/wcag-techniques": "^0.4.8"
+    "@qualweb/wcag-techniques": "^0.1.8"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
