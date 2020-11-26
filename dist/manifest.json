@@ -7,7 +7,6 @@
     "48": "icons/icon_48.ico"
   },
   "permissions": [
-    "tabs",
     {
       "fileSystem": [
         "write"

@@ -116,7 +116,7 @@ export default {
       this.isOpen = !this.isOpen;
     },
     async updateFilter(idValue, value) {
-      console.log("updating filter");
+      //console.log("updating filter");
       await this.setFilter({
         key: idValue,
         value: value

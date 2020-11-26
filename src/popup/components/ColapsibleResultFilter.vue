@@ -81,12 +81,12 @@ export default {
       this.isOpen = !this.isOpen;
     },
     async updateFilterResults(idValue, value) {
-      console.log({ idValue, value });
+      //console.log({ idValue, value });
       await this.setResultFilter({
         key: idValue.toLowerCase(),
         value: value
       });
-      console.log(this.filter);
+      //console.log(this.filter);
     }
   },
   components: {
