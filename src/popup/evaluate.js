@@ -1,4 +1,12 @@
 async function starEvaluation() {
+    console.log("injecting scripts")
+    await injectScripts("content");
+    await injectScripts("act");
+    await injectScripts("wcag");
+    await injectScripts("qwPage");
+    console.log("fim")
+
+
     return new Promise((resolve, reject) => {
         chrome.devtools.inspectedWindow.eval(
             `starEvaluation()`,
@@ -48,11 +56,25 @@ function endingEvaluation() {
             })
     });
 }
-async function getUrl() {
+
+async function getTitle() {
     return new Promise((resolve, reject) => {
-        chrome.runtime.sendMessage({ type: 'url', tabId: chrome.devtools.inspectedWindow.tabId }, (response) => {
-            //console.log("response url" + response.url);
-            resolve(response.url);
+        chrome.runtime.sendMessage({ type: 'title', tabId: chrome.devtools.inspectedWindow.tabId }, (response) => {
+            console.log("response title" + response.title);
+            resolve(response.title);
+        })
+    });
+}
+async function injectScripts(scriptToInject) {
+    return new Promise((resolve, reject) => {
+        chrome.runtime.sendMessage({
+            type: 'injectScript',
+            tabId: chrome.devtools.inspectedWindow.tabId,
+            scriptToInject: scriptToInject + ".js"
+        }, (response, exception) => {
+            console.log(response);
+            console.log(exception);
+            resolve(response);
         })
     });
 }

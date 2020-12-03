@@ -7,6 +7,7 @@
     "48": "icons/icon_48.ico"
   },
   "permissions": [
+    "tabs",
     {
       "fileSystem": [
         "write"
@@ -19,20 +20,6 @@
     ]
   },
   "content_security_policy": "script-src 'self'; object-src 'self'",
-  "content_scripts": [
-    {
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
-      "js": [
-        "content.js",
-        "act.js",
-        "wcag.js",
-        "qwPage.js"
-      ]
-    }
-  ],
   "web_accessible_resources": [
     "icons/logoQW.png"
   ],
