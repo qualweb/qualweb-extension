@@ -7,11 +7,6 @@
     "48": "icons/icon_48.ico"
   },
   "permissions": [
-    {
-      "fileSystem": [
-        "write"
-      ]
-    }
   ],
   "background": {
     "scripts": [
