@@ -1,6 +1,6 @@
 {
   "name": "qualweb-extension",
-  "version": "1.0.0",
+  "version": "1.0.01",
   "description": "Accessibility evaluation using QualWeb",
   "author": "aestriga <aestriga@lasige.di.fc.ul.pt>",
   "engines": {
@@ -24,9 +24,11 @@
     "vue-highlight.js": "^3.1.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
-    "@qualweb/qw-page": "0.1.33",
-    "@qualweb/act-rules": "^0.4.36",
-    "@qualweb/wcag-techniques": "^0.1.9"
+    "@qualweb/qw-page": "0.1.35",
+    "@qualweb/act-rules": "^0.4.42",
+    "@qualweb/best-practices": "^0.4.14",
+    "@qualweb/html-techniques": "^0.4.11",
+    "@qualweb/css-techniques": "^0.4.10"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
