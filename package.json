@@ -26,9 +26,7 @@
     "vuex": "^3.0.1",
     "@qualweb/qw-page": "0.1.35",
     "@qualweb/act-rules": "^0.4.42",
-    "@qualweb/best-practices": "^0.4.14",
-    "@qualweb/html-techniques": "^0.4.11",
-    "@qualweb/css-techniques": "^0.4.10"
+    "@qualweb/wcag-techniques": "^0.1.11"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
