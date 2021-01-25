@@ -1,7 +1,7 @@
 {
   "name": "qualweb-extension",
   "description": "Accessibility evaluation using QualWeb",
-  "version": "1.0.01",
+  "version": "1.0.02",
   "manifest_version": 2,
   "icons": {
     "48": "icons/icon_48.ico"
