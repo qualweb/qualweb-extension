@@ -1,6 +1,6 @@
 {
   "name": "qualweb-extension",
-  "version": "1.0.05",
+  "version": "1.0.06",
   "description": "Accessibility evaluation using QualWeb",
   "author": "aestriga <aestriga@lasige.di.fc.ul.pt>",
   "engines": {
@@ -19,6 +19,7 @@
   "dependencies": {
     "@qualweb/act-rules": "^0.5.3",
     "@qualweb/qw-page": "0.2.5",
+    "@qualweb/util": "^0.5.4",
     "@qualweb/wcag-techniques": "^0.2.3",
     "file-saver": "^2.0.2",
     "highlight.js": "^9.18.1",

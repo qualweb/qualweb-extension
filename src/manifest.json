@@ -19,7 +19,7 @@
         "https://*/*"
       ],
       "js": [
-        "content.js","act.js","wcag.js","qwPage.js"
+        "content.js","act.js","wcag.js","qwPage.js","util.js"
       ]
     }
   ],

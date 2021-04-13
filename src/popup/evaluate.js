@@ -17,8 +17,8 @@ async function evaluateACT() {
             'evaluateACT()',
             { useContentScriptContext: true }
             , (response, exception) => {
-                //console.log(response);
-                //console.log(exception);
+                // console.log(response);
+                // console.log(exception);
                 resolve(response);
             })
     });
@@ -30,8 +30,8 @@ async function evaluateWCAG() {
             `evaluateWCAG()`,
             { useContentScriptContext: true }
             , (response, exception) => {
-                console.log(response);
-                console.log(exception);
+                // console.log(response);
+                // console.log(exception);
                 resolve(response);
             })
     });

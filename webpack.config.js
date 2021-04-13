@@ -69,7 +69,7 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      global: 'window',
+      global: 'this',
     }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
@@ -79,10 +79,11 @@ const config = {
       { from: 'devtools.html', to: 'devtools.html', transform: transformHtml },
       { from: 'content.js', to: 'content.js' },
       { from: 'background.js', to: 'background.js' },
-      { from:  '../node_modules/@qualweb/act-rules/dist/act.js', to: 'act.js' },
-      { from: '../node_modules/@qualweb/wcag-techniques/dist/wcag.js', to: 'wcag.js' },
+      { from: '../node_modules/@qualweb/qw-page/dist/qw-page.bundle.js', to: 'qwPage.js' },
+      { from:  '../node_modules/@qualweb/util/dist/util.bundle.js', to: 'util.js' },
+      { from:  '../node_modules/@qualweb/act-rules/dist/act.bundle.js', to: 'act.js' },
+      { from: '../node_modules/@qualweb/wcag-techniques/dist/wcag.bundle.js', to: 'wcag.js' },
       { from: 'popup/evaluate.js', to: 'popup/evaluate.js' },
-      { from: '../node_modules/@qualweb/qw-page/dist/qwPage.js', to: 'qwPage.js' },
       { from: 'icons', to: 'icons', ignore: ['icon.xcf'] },
       { from: 'popup/popup.html', to: 'popup/popup.html', transform: transformHtml },
       { from: 'options/options.html', to: 'options/options.html', transform: transformHtml },
