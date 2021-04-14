@@ -2,9 +2,10 @@ let selectorToStyle = {};
 let summary, currentPage;
 
 function starEvaluation() {
-    window.qwPage = new Module.QWPage(document, window, true);
+    window.qwPage = new Module.QWPage(document, true);
     window.DomUtils = Utility.DomUtils;
     window.AccessibilityUtils = Utility.AccessibilityUtils;
+    window.disabledWidgets = window.AccessibilityUtils.getDisabledWidgets();
     summary = { passed: 0, failed: 0, warning: 0, inapplicable: 0, title: document.title };
 }
 
