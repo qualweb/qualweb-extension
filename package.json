@@ -22,7 +22,7 @@
     "@qualweb/util": "0.5.12",
     "@qualweb/wcag-techniques": "0.2.3",
     "file-saver": "^2.0.2",
-    "highlight.js": "^9.18.1",
+    "highlight.js": "^10.4.1",
     "vue": "^2.6.10",
     "vue-code-highlight": "^0.7.4",
     "vue-highlight.js": "^3.1.0",
