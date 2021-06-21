@@ -2,21 +2,23 @@ let selectorToStyle = {};
 let summary, currentPage;
 
 function starEvaluation() {
-    window.qwPage = new Module.QWPage(document, true);
-    window.DomUtils = Utility.DomUtils;
-    window.AccessibilityUtils = Utility.AccessibilityUtils;
-    window.disabledWidgets = window.AccessibilityUtils.getDisabledWidgets();
+    //window.qwPage = new Module.QWPage(document, true);
+    //window.DomUtils = Utility.DomUtils;
+    //window.AccessibilityUtils = Utility.AccessibilityUtils;
+    //window.disabledWidgets = window.AccessibilityUtils.getDisabledWidgets();
     summary = { passed: 0, failed: 0, warning: 0, inapplicable: 0, title: document.title };
+    //window.console.log("start evaluation summary:", summary);
 }
 
 function evaluateACT() {
     let actResult, result;
-    window.act = new ACT.ACTRules();
+    //window.act = new ACT.ACTRules();
     //window.act.validateFirstFocusableElementIsLinkToNonRepeatedContent();
     window.act.executeAtomicRules();
     window.act.executeCompositeRules();
     actResult = window.act.getReport();
     addValuesToSummary(summary, actResult);
+    //window.console.log("evaluate ACT summary:", summary);
     result = actResult.assertions;
     return result;
 }
@@ -32,14 +34,16 @@ function evaluateWCAG() {
 
 function endingEvaluation() {
     window.qwPage.cleanAllElements();
+    //window.console.log("ending evaluation summary:", summary);
     return summary;
 }
 function addValuesToSummary(summary, report) {
-    window.console.log("report:", report);
+    //window.console.log("report:", report);
     summary.passed += report.metadata.passed;
     summary.failed += report.metadata.failed;
     summary.warning += report.metadata.warning;
     summary.inapplicable += report.metadata.inapplicable;
+    //window.console.log("add values to summary:", summary);
 }
 
 

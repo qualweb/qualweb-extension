@@ -31,14 +31,11 @@ export default {
   },
   async mounted() {
     let modules = this.getEvaluated();
-    //console.log(modules);
-    //console.log(this.getResultFilter())
     let actResult, bpResult, htmlResult, cssResult, summary;
     await starEvaluation();
     if (modules.act) {
       this.state = "Evaluating ACT module";
       actResult = await evaluateACT();
-      //console.log(actResult)
       this.setACT(actResult);
     }
     if (modules.html) {

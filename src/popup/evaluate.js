@@ -4,8 +4,8 @@ async function starEvaluation() {
             `starEvaluation()`,
             { useContentScriptContext: true }
             , (response, exception) => {
-                //console.log(response);
-                //console.log(exception);
+                //window.console.log("response:", response);
+                //window.console.log("exception:", exception);
                 resolve(response);
             })
     });
