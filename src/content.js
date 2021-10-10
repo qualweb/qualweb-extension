@@ -2,74 +2,71 @@ let selectorToStyle = {};
 let summary, currentPage;
 
 function starEvaluation() {
-    //window.qwPage = new Module.QWPage(document, true);
-    //window.DomUtils = Utility.DomUtils;
-    //window.AccessibilityUtils = Utility.AccessibilityUtils;
-    //window.disabledWidgets = window.AccessibilityUtils.getDisabledWidgets();
-    summary = { passed: 0, failed: 0, warning: 0, inapplicable: 0, title: document.title };
-    //window.console.log("start evaluation summary:", summary);
+  //window.qwPage = new Module.QWPage(document, true);
+  //window.DomUtils = Utility.DomUtils;
+  //window.AccessibilityUtils = Utility.AccessibilityUtils;
+  //window.disabledWidgets = window.AccessibilityUtils.getDisabledWidgets();
+  summary = { passed: 0, failed: 0, warning: 0, inapplicable: 0, title: document.title };
+  //window.console.log("start evaluation summary:", summary);
 }
 
 function evaluateACT() {
-    let actResult, result;
-    //window.act = new ACT.ACTRules();
-    //window.act.validateFirstFocusableElementIsLinkToNonRepeatedContent();
-    window.act.executeAtomicRules();
-    window.act.executeCompositeRules();
-    actResult = window.act.getReport();
-    addValuesToSummary(summary, actResult);
-    //window.console.log("evaluate ACT summary:", summary);
-    result = actResult.assertions;
-    return result;
+  let actResult, result;
+  //window.act.validateFirstFocusableElementIsLinkToNonRepeatedContent();
+  window.act.executeAtomicRules();
+  window.act.executeCompositeRules();
+  actResult = window.act.getReport();
+  addValuesToSummary(summary, actResult);
+  //window.console.log("evaluate ACT summary:", summary);
+  result = actResult.assertions;
+  return result;
 }
 
 function evaluateWCAG() {
-    let html, htmlResult, result;
-    html = new WCAG.WCAGTechniques();
-    htmlResult = html.execute(false);
-    addValuesToSummary(summary, htmlResult);
-    result = htmlResult.assertions;
-    return result;
+  let htmlResult, result;
+  htmlResult = window.wcag.execute(false);
+  addValuesToSummary(summary, htmlResult);
+  result = htmlResult.assertions;
+  return result;
 }
 
 function endingEvaluation() {
-    window.qwPage.cleanAllElements();
-    //window.console.log("ending evaluation summary:", summary);
-    return summary;
+  //window.console.log("ending evaluation summary:", summary);
+  return summary;
 }
+
 function addValuesToSummary(summary, report) {
-    //window.console.log("report:", report);
-    summary.passed += report.metadata.passed;
-    summary.failed += report.metadata.failed;
-    summary.warning += report.metadata.warning;
-    summary.inapplicable += report.metadata.inapplicable;
-    //window.console.log("add values to summary:", summary);
+  //window.console.log("report:", report);
+  summary.passed += report.metadata.passed;
+  summary.failed += report.metadata.failed;
+  summary.warning += report.metadata.warning;
+  summary.inapplicable += report.metadata.inapplicable;
+  //window.console.log("add values to summary:", summary);
 }
 
 
 function highlightElement(elements) {
-    for (let elementResult of elements) {
-        let selector = elementResult.pointer;
-        let element = document.querySelector(selector);
-        element.scrollIntoView();
-        let style = { border: element.style.border, outline: element.style.outline, borderRadius: element.style.borderRadius }
-        selectorToStyle[selector] = style;
-        element.style.border = "1px dashed white";
-        element.style.borderRadius = "0px";
-        element.style.outline = "1px dashed black";
-    }
+  for (let elementResult of elements) {
+    let selector = elementResult.pointer;
+    let element = document.querySelector(selector);
+    element.scrollIntoView();
+    let style = { border: element.style.border, outline: element.style.outline, borderRadius: element.style.borderRadius }
+    selectorToStyle[selector] = style;
+    element.style.border = "1px dashed white";
+    element.style.borderRadius = "0px";
+    element.style.outline = "1px dashed black";
+  }
 
 }
 
 function turnOffhighlightElement(elements) {
-    for (let elementResult of elements) {
-        let selector = elementResult.pointer;
-        let element = document.querySelector(selector);
-        let style = selectorToStyle[selector];
-        element.style.border = style.border;
-        element.style.borderRadius = style.borderRadius;
-        element.style.outline = style.outline;
-        selectorToStyle[selector] = {};
-    }
+  for (let elementResult of elements) {
+    let selector = elementResult.pointer;
+    let element = document.querySelector(selector);
+    let style = selectorToStyle[selector];
+    element.style.border = style.border;
+    element.style.borderRadius = style.borderRadius;
+    element.style.outline = style.outline;
+    selectorToStyle[selector] = {};
+  }
 }
-
