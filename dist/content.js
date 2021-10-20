@@ -12,6 +12,7 @@ function starEvaluation() {
 
 function evaluateACT() {
   let actResult, result;
+  window.act = new ACTRules({ translate: locale_en, fallback: locale_en });
   //window.act.validateFirstFocusableElementIsLinkToNonRepeatedContent();
   window.act.executeAtomicRules();
   window.act.executeCompositeRules();
@@ -24,6 +25,7 @@ function evaluateACT() {
 
 function evaluateWCAG() {
   let htmlResult, result;
+  window.wcag = new WCAGTechniques({ translate: locale_en, fallback: locale_en });
   htmlResult = window.wcag.execute(false);
   addValuesToSummary(summary, htmlResult);
   result = htmlResult.assertions;

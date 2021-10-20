@@ -25,15 +25,14 @@ const config = {
     extensions: ['.js', '.vue'],
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.vue$/,
         loaders: 'vue-loader',
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude:[ /node_modules/,"/icons/"]
+        exclude: [/node_modules/, "/icons/"]
       },
       {
         test: /\.css$/,
@@ -80,9 +79,10 @@ const config = {
       { from: 'content.js', to: 'content.js' },
       { from: 'background.js', to: 'background.js' },
       { from: '../node_modules/@qualweb/qw-page/dist/qw-page.bundle.js', to: 'qwPage.js' },
-      { from:  '../node_modules/@qualweb/util/dist/util.bundle.js', to: 'util.js' },
-      { from:  '../node_modules/@qualweb/act-rules/dist/act.bundle.js', to: 'act.js' },
+      { from: '../node_modules/@qualweb/util/dist/util.bundle.js', to: 'util.js' },
+      { from: '../node_modules/@qualweb/act-rules/dist/act.bundle.js', to: 'act.js' },
       { from: '../node_modules/@qualweb/wcag-techniques/dist/wcag.bundle.js', to: 'wcag.js' },
+      { from: 'locales/en.js', to: 'locales/en.js' },
       { from: 'popup/evaluate.js', to: 'popup/evaluate.js' },
       { from: 'icons', to: 'icons', ignore: ['icon.xcf'] },
       { from: 'popup/popup.html', to: 'popup/popup.html', transform: transformHtml },
