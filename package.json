@@ -17,11 +17,11 @@
     "watch:dev": "cross-env HMR=true npm run build:dev -- --watch"
   },
   "dependencies": {
-    "@qualweb/act-rules": "0.6.14",
-    "@qualweb/qw-page": "0.2.13",
-    "@qualweb/util": "0.5.22",
-    "@qualweb/wcag-techniques": "0.3.8",
-    "@qualweb/locale": "0.1.11",
+    "@qualweb/act-rules": "0.6.20",
+    "@qualweb/qw-page": "0.2.15",
+    "@qualweb/util": "0.5.28",
+    "@qualweb/wcag-techniques": "0.3.13",
+    "@qualweb/locale": "0.1.15",
     "file-saver": "^2.0.2",
     "highlight.js": "^9.18.1",
     "vue": "^2.6.10",
