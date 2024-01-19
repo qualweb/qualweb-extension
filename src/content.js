@@ -8,6 +8,7 @@ function starEvaluation() {
   //window.disabledWidgets = window.AccessibilityUtils.getDisabledWidgets();
   summary = { passed: 0, failed: 0, warning: 0, inapplicable: 0, title: document.title };
   //window.console.log("start evaluation summary:", summary);
+  return summary;
 }
 
 function evaluateACT() {

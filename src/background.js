@@ -4,29 +4,29 @@
     console.log("conected");*/
 // assign the listener function to a variable so we can remove it later
 let devToolsListener = (msg, sender, response) => {
-    console.log("recebida")
+    // console.log("recebida")
     if (msg.type === 'tabIndex') {
-        console.log(msg)
+        // console.log(msg)
         chrome.tabs.get(parseInt(msg.tabId) , (tab) => {
-            console.log(tab.index);
-            console.log("resposta a sair")
+            // console.log(tab.index);
+            // console.log("resposta a sair")
             response({index:tab.index});
         })
     }
     if (msg.type === 'title') {
-        console.log(msg)
+        // console.log(msg)
         chrome.tabs.get(parseInt(msg.tabId) , (tab) => {
-            console.log(tab.title);
-            console.log("title resposta a sair")
+            // console.log(tab.title);
+            // console.log("title resposta a sair")
             response({title:tab.title});
         })
     }
 
     if (msg.type === 'url') {
-        console.log(msg)
+        // console.log(msg)
         chrome.tabs.get(parseInt(msg.tabId) , (tab) => {
-            console.log(tab.title);
-            console.log("title resposta a sair")
+            // console.log(tab.title);
+            // console.log("title resposta a sair")
             response({url:tab.url});
         })
     }
