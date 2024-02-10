@@ -1,6 +1,6 @@
 {
   "name": "qualweb-extension",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "Accessibility evaluation using QualWeb",
   "author": "aestriga <aestriga@lasige.di.fc.ul.pt>",
   "engines": {
@@ -17,11 +17,11 @@
     "watch:dev": "cross-env HMR=true npm run build:dev -- --watch"
   },
   "dependencies": {
-    "@qualweb/act-rules": "0.6.28",
+    "@qualweb/act-rules": "0.6.31",
     "@qualweb/qw-page": "0.2.19",
-    "@qualweb/util": "0.5.35",
+    "@qualweb/util": "0.5.37",
     "@qualweb/wcag-techniques": "0.3.17",
-    "@qualweb/locale": "0.1.17",
+    "@qualweb/locale": "0.1.18",
     "file-saver": "^2.0.2",
     "highlight.js": "^9.18.1",
     "vue": "^2.6.10",
@@ -56,7 +56,7 @@
     "eslint-plugin-vue": "^6.0.1",
     "file-loader": "^5.0.2",
     "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^6.0.0",
+    "node-sass": "^7.0.0",
     "sass": "^1.26.2",
     "sass-loader": "^10.0.0",
     "vue-loader": "^15.4.2",
